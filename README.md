@@ -39,6 +39,8 @@
 
 ## Semaine 1
 
+Réalisation du modèle UML des personnages ainsi que l'ébauche de certaines classes qui sont liées et début de l'écriture du code de quelques classes.
+
 ## Semaine 2
 
 ## Semaine 3
