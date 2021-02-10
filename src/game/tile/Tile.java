@@ -1,4 +1,6 @@
-package game;
+package game.tile;
+
+import game.Ressource;
 
 public class Tile {
     private int xCoordinate;
@@ -6,9 +8,10 @@ public class Tile {
     private Land typeOfLand;
     private Character character;
 
-    public Tile(int x, int y) {
+    public Tile(int x, int y, Land land) {
         this.xCoordinate = x;
         this.yCoordinate = y;
+        this.typeOfLand = land;
     }
 
     public int getXCoordinate() {
@@ -18,4 +21,10 @@ public class Tile {
     public int getYCoordinate() {
         return this.yCoordinate;
     }
+
+    public Land getLand() {
+        return this.typeOfLand;
+    }
+
+
 }

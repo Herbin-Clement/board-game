@@ -1,11 +1,13 @@
-package game;
+package game.character;
 
-public class Character {
+import game.tile.*;
+
+public abstract class Character {
     protected int gold;
     protected Tile position;
 
     Character(Tile tile) {
-
+        this.position = tile;
     }
 
     public int getGold() {
@@ -16,15 +18,9 @@ public class Character {
         return this.position;
     }
 
-    public void setPosition() {
-
+    public void setPosition(Tile tile) {
+        this.position = tile;
     }
 
-    public void move(Tile tile) {
-
-    }
-
-    public void earnGold() {
-        
-    }
+    public abstract void earnGold();
 }
