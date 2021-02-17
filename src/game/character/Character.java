@@ -8,6 +8,7 @@ public abstract class Character {
 
     Character(Tile tile) {
         this.position = tile;
+        this.gold = 0;
     }
 
     public int getGold() {

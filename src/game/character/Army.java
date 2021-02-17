@@ -10,7 +10,7 @@ public class Army extends Character{
     public Army(Tile tile, int number) {
         super(tile);
         this.number = number;
-        setFoodRequire();
+        this.foodRequire = this.position.getLand() == Land.DESERT ? this.number * 2 : this.number;
     }
 
     public int getNumber() {
@@ -24,7 +24,12 @@ public class Army extends Character{
     public Player getOwner(){}
         return this.owner;
     }
-    public void setFoodRequire() {
+
+    public void setOwner(Player p){
+        this.owner = p;
+    }
+
+    public void setFoodRequire(){
         this.foodRequire = this.position.getLand() == Land.DESERT ? this.number * 2 : this.number;
     }
 
@@ -38,7 +43,7 @@ public class Army extends Character{
         setFoodRequire();
     }
 
-    public void earnGold() {
-
+    public void earnGold(int n){
+        this.gold += n;
     }
 }
