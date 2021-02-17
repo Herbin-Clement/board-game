@@ -5,6 +5,7 @@ import game.tile.*;
 public abstract class Character {
     protected int gold;
     protected Tile position;
+    private Player owner;
 
     Character(Tile tile) {
         this.position = tile;
@@ -22,6 +23,14 @@ public abstract class Character {
     public void setPosition(Tile tile) {
         this.position = tile;
     }
+
+    public Player getOwner(){}
+        return this.owner;
+}
+
+    public void setOwner(Player p){
+        this.owner = p;
+}
 
     public abstract void earnGold();
 }
