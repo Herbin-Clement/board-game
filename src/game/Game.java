@@ -13,7 +13,7 @@ public class Game {
         int i =0;
         boolean stop= false;
         while(i<n && ! stop){
-            for(player:this.players){
+            for(Player player : this.players){
                 player.action(this.board);
                 player.recolte();
                 player.feed();

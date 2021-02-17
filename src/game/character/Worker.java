@@ -13,7 +13,7 @@ public class Worker extends Character{
         return this.haveHarvest;
     }
 
-    public void earnGold() {
+    public void earnGold(int n){
         
     }
 
