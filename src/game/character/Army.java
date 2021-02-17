@@ -28,15 +28,23 @@ public class Army extends Character{
 
     public void addWarrior(int n) {
         this.number += n;
-        setFoodRequire();
+        setFoodRequire();// recalculer ici pour recalculer moins de fois qu'en le mettant dans Player
     }
 
-    public void removeWarrior(int n) {
+    public void removeWarrior(int n) {// il faut diviser par 2
         this.number -= n;
-        setFoodRequire();
+        setFoodRequire();// Pareil ici
     }
 
     public void earnGold(int n){
         this.gold += n;
     }
+
+    
+
+    public void fight(Tile tile){
+        
+    }
+
+
 }
