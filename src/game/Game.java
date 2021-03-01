@@ -9,6 +9,9 @@ public class Game {
     }
 
 //savoir ou mettre n
+    /**
+     * Play a game 
+     */
     public void play(){
         int i =0;
         boolean stop= false;

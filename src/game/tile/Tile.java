@@ -12,19 +12,47 @@ public class Tile {
         this.xCoordinate = x;
         this.yCoordinate = y;
         this.typeOfLand = land;
+        this.character = null;
     }
-
+    /**
+     * Return the x coordinate of the Tile
+     * @return the x coordinate
+     */
     public int getXCoordinate() {
         return this.xCoordinate;
     }
 
+    /**
+     * Return the y coordinate of the Tile
+     * @return the y coordinate 
+     */
     public int getYCoordinate() {
         return this.yCoordinate;
     }
-
+    /**
+     * Return the type of land of the Tile
+     * @return the type of land
+     */
     public Land getLand() {
         return this.typeOfLand;
     }
 
+    public Character getCharacter(){
+        return this.character;
+    }
+    /**
+     * 
+     * @param c a character
+     */
+    public void setCharacter(Character c){
+        this.character = c;
+    }
+    /**
+     * Return if the tile is occupied by a Character
+     * @return if the tile is occupied
+     */
+    public boolean isEmpty(){
+        return this.character == null;
+    }
 
 }
