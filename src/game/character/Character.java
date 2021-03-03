@@ -1,6 +1,7 @@
 package game.character;
 
 import game.tile.*;
+import game.player.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon
  */
@@ -40,13 +41,13 @@ public abstract class Character {
         this.position = tile;
     }
 
-    public Player getOwner(){}
+    public Player getOwner(){
         return this.owner;
-}
+    }
 
     public void setOwner(Player p){
         this.owner = p;
-}
+    }
 
-    public abstract void earnGold();
+    public abstract void earnGold(int n);
 }

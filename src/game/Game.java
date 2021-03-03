@@ -1,5 +1,9 @@
 package game;
 
+import java.util.List;
+import game.player.*;
+import game.board.*;
+
 public class Game {
     private List<Player> players;
     private Board board;

@@ -1,6 +1,7 @@
 package game.character;
 
 import game.tile.*;
+import game.player.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  * 

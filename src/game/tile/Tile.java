@@ -5,13 +5,11 @@ import game.Ressource;
 public class Tile {
     private int xCoordinate;
     private int yCoordinate;
-    private Land typeOfLand;
     private Character character;
 
-    public Tile(int x, int y, Land land) {
+    public Tile(int x, int y) {
         this.xCoordinate = x;
         this.yCoordinate = y;
-        this.typeOfLand = land;
         this.character = null;
     }
     /**
@@ -33,9 +31,6 @@ public class Tile {
      * Return the type of land of the Tile
      * @return the type of land
      */
-    public Land getLand() {
-        return this.typeOfLand;
-    }
 
     public Character getCharacter(){
         return this.character;

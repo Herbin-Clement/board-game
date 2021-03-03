@@ -1,10 +1,11 @@
 package game.character;
 
 import game.tile.*;
+import game.player.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon
  */
-public class Worker extends Character{
+public class Worker extends Character {
     private boolean haveHarvest;
     private int goldRequire;
     /**
@@ -35,18 +36,18 @@ public class Worker extends Character{
     /**
      * 
      */
-    public void harvest(){
+    public void harvest( ){
         this.haveHarvest = true;
     }
     /**
      * 
      * @return
      */
-    public int getGoldRequire(){
+    public int getGoldRequire() {
         return this.goldRequire;
     }
 
-    public void earnGold(){
+    public void earnGold(int n) {
         this.gold += this.goldRequire;
     }
 
