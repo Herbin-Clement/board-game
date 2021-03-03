@@ -8,4 +8,11 @@ public class Board {
     public Board(int w, int h) {
         
     }
+
+    /**
+     * Create a board
+     */
+    public void initBoard(){
+
+    }
 }

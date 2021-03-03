@@ -1,5 +1,7 @@
 package game.character;
 
+import java.lang.*;
+
 import game.tile.*;
 import game.player.*;
 /**
@@ -53,7 +55,7 @@ public class Army extends Character{
      * Remove half warriors to the army
      */
     public void removeWarrior() {// il faut diviser par 2
-        this.number = floor(this.number/2);//etrange number est int pourtant
+        this.number = Math.floor(this.number/2);//etrange number est int pourtant
         setFoodRequire();// Pareil ici
     }
     public void earnGold(int n){

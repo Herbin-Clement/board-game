@@ -7,6 +7,11 @@ public class Tile {
     private int yCoordinate;
     private Character character;
 
+    /**
+     * Create a tile
+     * @param x x coordinate
+     * @param y y coordinate
+     */
     public Tile(int x, int y) {
         this.xCoordinate = x;
         this.yCoordinate = y;
@@ -36,7 +41,7 @@ public class Tile {
         return this.character;
     }
     /**
-     * 
+     * Set the character which on the tile
      * @param c a character
      */
     public void setCharacter(Character c){
