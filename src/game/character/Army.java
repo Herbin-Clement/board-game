@@ -50,11 +50,10 @@ public class Army extends Character{
         setFoodRequire();// recalculer ici pour recalculer moins de fois qu'en le mettant dans Player
     }
     /**
-     * Remove n warriors to the army
-     * @param n
+     * Remove half warriors to the army
      */
-    public void removeWarrior(int n) {// il faut diviser par 2
-        this.number -= n;
+    public void removeWarrior() {// il faut diviser par 2
+        this.number = floor(this.number/2);//etrange number est int pourtant
         setFoodRequire();// Pareil ici
     }
     public void earnGold(int n){
@@ -64,8 +63,22 @@ public class Army extends Character{
     
 
     public void fight(Tile tile){
-        
-    }
+        if(!tile.isEmpty()){
+            Army ennemy = tile.getCharacter(); //probleme car de type Caracter...
+            if(ennemy.number < this.number && !this.getOwner().equals(ennemy.getOwner())){
+                if(ennemy.number>1){
+                    ennemy.removeWarrior();
+                }
+                else{
+                    ennemy.setOwner(this.getOwner());
+                }
+                this.earnGold(2);
+            }
+            else if(ennemy.number > this.number && this.getOwner().equals(ennemy.getOwner())){
+                ennemy.addWarrior(1);//penser a vérifier que addWarrior vérifie les limites d'ajout
+                this.earnGold(1);
+            }
+        }
 
 
 }
