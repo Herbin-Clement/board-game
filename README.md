@@ -14,14 +14,18 @@
 ## Livrable 1
 
 ### Atteinte des objectifs
+Classes Worker et Army créées pour modéliser les pionsdes joueurs pour les 2 jeux
 
 ### Difficultés restant à résoudre
+Difficultées à trouver comment modéliser les tuiles du plateau car il y a de légères différences pour la valeurs des ressources et le nombre de pion accepté
 
 ## Livrable 2
 
 ### Atteinte des objectifs
+Tuiles modélisées 
 
 ### Difficultés restant à résoudre
+
 
 ## Livrable 3
 
@@ -51,6 +55,7 @@ Nous avons continué le travail de l'écriture des classes de la semaine derniè
 
 ## Semaine 4
 
+Nous avons du remodéliser les tuiles car cela ne correspondait pas pour notre projet. Nous continuons à modéliser le plateau
 
 ## Semaine 5
 

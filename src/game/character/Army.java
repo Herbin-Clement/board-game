@@ -20,7 +20,7 @@ public class Army extends Character{
     public Army(Tile tile, int number, Player o) {
         super(tile, o);
         this.number = number;
-        this.foodRequire = this.position.getLand() == Land.DESERT ? this.number * 2 : this.number;
+        this.foodRequire = this.position.getRessource() == "sand" ? this.number * 2 : this.number;
     }
     /**
      * Return the number of warriors in the army
@@ -81,6 +81,10 @@ public class Army extends Character{
                 this.earnGold(1);
             }
         }
+
+    public 
+    }
+
 
 
 }

@@ -6,16 +6,18 @@ public class Tile {
     private int xCoordinate;
     private int yCoordinate;
     private Character character;
+    private int capacity;
 
     /**
      * Create a tile
      * @param x x coordinate
      * @param y y coordinate
      */
-    public Tile(int x, int y) {
+    public Tile(int x, int y, int c) {
         this.xCoordinate = x;
         this.yCoordinate = y;
         this.character = null;
+        this.capacity = c;
     }
     /**
      * Return the x coordinate of the Tile
@@ -54,5 +56,10 @@ public class Tile {
     public boolean isEmpty(){
         return this.character == null;
     }
+
+    public int getCapacity(){
+        return this.capacity;
+    }
+    
 
 }
