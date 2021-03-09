@@ -40,14 +40,23 @@ public abstract class Character {
     public void setPosition(Tile tile) {
         this.position = tile;
     }
-
+    /**
+     * Return the Owner of the character
+     * @return the Owner of the character
+     */
     public Player getOwner(){
         return this.owner;
     }
-
+    /**
+     * Set the owner of the character
+     * @param p the new Owner
+     */
     public void setOwner(Player p){
         this.owner = p;
     }
-
+    /**
+     * Salary of the character
+     * @param n quantity of gold added 
+     */
     public abstract void earnGold(int n);
 }

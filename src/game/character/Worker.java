@@ -27,8 +27,8 @@ public class Worker extends Character {
         }
     }
     /**
-     * 
-     * @return
+     * Return if the Worker have recolt ressources 
+     * @return True iff the Worker have recolt ressources, false if not 
      */
     public boolean haveHarvest() {
         return this.haveHarvest;
@@ -36,17 +36,20 @@ public class Worker extends Character {
     /**
      * 
      */
-    public void harvest( ){
+    public void harvest(){
         this.haveHarvest = true;
     }
     /**
-     * 
-     * @return
+     * Return the quantity of gold necessary 
+     * @return quantity of gold necessary 
      */
     public int getGoldRequire() {
         return this.goldRequire;
     }
 
+    /**
+     * 
+     */
     public void earnGold(int n) {
         this.gold += this.goldRequire;
     }

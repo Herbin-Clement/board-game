@@ -1,5 +1,9 @@
 package game.tile;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
+ * 
+ */
 public class PlainTile extends Tile {
 
     private static final String RESSOURCE = "barley";

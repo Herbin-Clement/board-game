@@ -1,5 +1,9 @@
 package game.tile;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
+ * 
+ */
 public class MountainTile extends Tile {
 
     private static final String RESSOURCE  = "stone";
@@ -24,6 +28,10 @@ public class MountainTile extends Tile {
         return this.ressourceValue;
     }
 
+    /**
+     * Return the type of ressource present
+     * @return the type of ressource present
+     */
     public String getRessource(){
         return RESSOURCE;
     }
