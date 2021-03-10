@@ -7,14 +7,14 @@ import game.player.*;
  */
 public abstract class Character {
     protected int gold;
-    protected Tile position;
+    protected CommonTile position;
     private Player owner;
 
     /**
      * Create a character
      * @param o The owner of the character
      */
-    Character(Tile tile, Player o) {
+    Character(CommonTile tile, Player o) {
         this.position = tile;
         this.owner = o; 
         this.gold = 0;
@@ -30,14 +30,14 @@ public abstract class Character {
      * Return the character position 
      * @return the character position
     */
-    public Tile getPosition() {
+    public CommonTile getPosition() {
         return this.position;
     }
     /**
      * Set the character position
      * @param tile the new position 
      */
-    public void setPosition(Tile tile) {
+    public void setPosition(CommonTile tile) {
         this.position = tile;
     }
     /**

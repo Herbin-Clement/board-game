@@ -1,13 +1,15 @@
 package game.tile;
 
+<<<<<<< HEAD
+public class MountainTile extends CommonTile {
+=======
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  * 
  */
 public class MountainTile extends Tile {
+>>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
 
-    private static final String RESSOURCE  = "stone";
-    private int ressourceValue;
     
 
     /**
@@ -16,18 +18,13 @@ public class MountainTile extends Tile {
      * @param y y coordinate 
      */
     public MountainTile(int x, int y, int c, int v) {
-        super(x, y, c);
-        this.ressourceValue = v;
+        super(x, y, c, v, "stone");
     }
 
-    /**
-     * 
-     * @return the value of the stone
-     */
-    public int getRessourceValue(){
-        return this.ressourceValue;
-    }
 
+<<<<<<< HEAD
+
+=======
     /**
      * Return the type of ressource present
      * @return the type of ressource present
@@ -35,4 +32,5 @@ public class MountainTile extends Tile {
     public String getRessource(){
         return RESSOURCE;
     }
+>>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
 }

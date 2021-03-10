@@ -1,5 +1,10 @@
 package game.tile;
 
+<<<<<<< HEAD
+public class ForestTile extends CommonTile {
+    
+
+=======
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  *
@@ -7,6 +12,7 @@ package game.tile;
 public class ForestTile extends Tile {
     private static final String RESSOURCE  = "wood"
     private int ressourceValue;
+>>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
 
     /**
      * Create a Forest Tile
@@ -14,6 +20,11 @@ public class ForestTile extends Tile {
      * @param y y coordinate
      */
     public ForestTile(int x, int y, int c, int v) {
+<<<<<<< HEAD
+        super(x, y, c, v, "wood");
+    }
+
+=======
         super(x, y, c);
         this.ressourceValue = v;
     }
@@ -32,4 +43,5 @@ public class ForestTile extends Tile {
     public String getRessource(){
         return RESSOURCE;
     }
+>>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
 }

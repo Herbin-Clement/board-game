@@ -13,13 +13,13 @@ public class Worker extends Character {
      * @param tile
      * @param o
      */
-    public Worker(Tile tile, Player o) {
+    public Worker(CommonTile tile, Player o) {
         super(tile, o);
         this.haveHarvest = false; 
-        if(this.position.getLand() == Land.MOUNTAIN){
+        if(this.position.getRessource() == "rock"){
             this.goldRequire = 5;
         }
-        else if(this.position.getLand() == Land.DESERT){
+        else if(this.position.getRessource() == "sand"){
             this.goldRequire = 3;
         }
         else {

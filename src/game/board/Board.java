@@ -2,7 +2,7 @@ package game.board;
 
 import game.tile.*;
 
-public class Board {
+public abstract class Board {
     private final int width;
     private final int height;
     private Tile[][] board;

@@ -17,7 +17,7 @@ public class Army extends Character{
      * @param tile
      * @param number the number of warriors in the army
      */
-    public Army(Tile tile, int number, Player o) {
+    public Army(CommonTile tile, int number, Player o) {
         super(tile, o);
         this.number = number;
         this.foodRequire = this.position.getRessource() == "sand" ? this.number * 2 : this.number;
@@ -41,7 +41,7 @@ public class Army extends Character{
      * Set the the foodRequire depending the land type
      */
     public void setFoodRequire(){
-        this.foodRequire = this.position.getLand() == Land.DESERT ? this.number * 2 : this.number;
+        this.foodRequire = this.position.getRessource() == "sand" ? this.number * 2 : this.number;
     }
     /**
      * Add n warriors to the army
@@ -62,9 +62,9 @@ public class Army extends Character{
         this.gold += n;
     }
 
-    
 
-    public void fight(Tile tile){
+
+    public void fight(CommonTile tile){
         if(!tile.isEmpty()){
             Army ennemy = tile.getCharacter(); //probleme car de type Caracter...
             if(ennemy.number < this.number && !this.getOwner().equals(ennemy.getOwner())){
@@ -82,7 +82,7 @@ public class Army extends Character{
             }
         }
 
-    public 
+    
     }
 
 
