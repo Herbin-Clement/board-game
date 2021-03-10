@@ -28,6 +28,10 @@ public class Army extends Character{
     public int getNumber() {
         return this.number;
     }
+
+    public int getFoodRequire(){
+        return this.foodRequire;
+    }
     /**
      * Return the quantity of food necesarry to feed the army
      * @return the quantity of food necesarry to feed the army

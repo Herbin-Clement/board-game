@@ -3,6 +3,7 @@ package game.player;
 import java.util.*;
 
 import game.tile.*;
+import game.board.Board;
 import game.character.Character;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
@@ -10,10 +11,10 @@ import game.character.Character;
  */
 public abstract class Player {
 
-    private String name;
-    private int gold;
-    private List<Character> theCharacters ;  
-    private int nbCharacter;
+    protected String name;
+    protected int gold;
+    protected List<Character> theCharacters ;  
+    protected int nbCharacter;
 
     /**
      * Create a player
@@ -24,7 +25,7 @@ public abstract class Player {
         this.name = n;
         this. gold = 0;
         this.nbCharacter = c;
-        this.theCharacters = new ArrayList<>();
+        this.theCharacters = new ArrayList<>(c);
     }
 
     /**
@@ -62,9 +63,24 @@ public abstract class Player {
 
     /**
      * Deploy a Character on a specific Tile 
-     * @param t A tile
+     * @param b A board
      */
-    public abstract void deploy(CommonTile t);
+    public abstract void deploy(Board b)throws ErrorDeploy;
 
-
+    public CommonTile chooseTile(Board board){
+        boolean found = false;
+        Tile tile;
+        CommonTile common;
+        while(!found){
+            int numberX = (int) (Math.random()*board.getWidth());
+            int numberY = (int) (Math.random()*board.getHeight());
+            tile = board.getTile(numberX, numberY);
+            if (tile instanceof CommonTile){
+                common = (CommonTile) tile;
+                found = true;
+            }
+        }
+        return common;
+        
+    }
 }

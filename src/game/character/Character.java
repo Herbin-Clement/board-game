@@ -30,7 +30,7 @@ public abstract class Character {
      * Return the character position 
      * @return the character position
     */
-    public CommonTile getPosition() {
+    public CommonTile getPosition(){
         return this.position;
     }
     /**
