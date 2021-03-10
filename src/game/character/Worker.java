@@ -16,15 +16,7 @@ public class Worker extends Character {
     public Worker(CommonTile tile, Player o) {
         super(tile, o);
         this.haveHarvest = false; 
-        if(this.position.getRessource() == "rock"){
-            this.goldRequire = 5;
-        }
-        else if(this.position.getRessource() == "sand"){
-            this.goldRequire = 3;
-        }
-        else {
-            this.goldRequire = 1;
-        }
+        this.goldRequire = this.position.getFoodRequire();
     }
     /**
      * Return if the Worker have recolt ressources 

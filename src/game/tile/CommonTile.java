@@ -1,24 +1,24 @@
 package game.tile;
 
 
+import game.character.Character;
 
-public class CommonTile extends Tile{
+public abstract class CommonTile extends Tile{
     private Character character;
     private int capacity;
     private int ressourceValue;
-    private String ressource;
+    
     
     /**
      * Create a tile
      * @param x x coordinate
      * @param y y coordinate
      */
-    public CommonTile(int x, int y, int c, int v, String r) {
+    protected CommonTile(int x, int y, int c, int v) {
         super(x,y);
         this.character = null;
         this.capacity = c;
         this.ressourceValue = v;
-        this.ressource = r;
     }
     
     /**
@@ -51,10 +51,7 @@ public class CommonTile extends Tile{
     public int getRessourceValue(){
         return this.ressourceValue;
     }
-    
-    public String getRessource(){
-        return this.ressource;
-    }
 
+    public abstract int getFoodRequire();
 
 }

@@ -1,17 +1,8 @@
 package game.tile;
 
-<<<<<<< HEAD
-public class PlainTile extends CommonTile {
-=======
-/**
- * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
- * 
- */
-public class PlainTile extends Tile {
+import game.character.Army;
 
-    private static final String RESSOURCE = "barley";
-    private int ressourceValue;
->>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
+public class PlainTile extends CommonTile {
 
     /**
      * Create a plain tile 
@@ -19,9 +10,17 @@ public class PlainTile extends Tile {
      * @param y y coordinate
      */
     public PlainTile(int x, int y, int c, int v) {
-        super(x, y, c, v, "barley");
+        super(x, y, c, v);
     }
 
 
-
+    public int getFoodRequire(){
+        if(this.getCharacter() instanceof Army){
+            Army army = (Army) this.getCharacter();
+            return army.getNumber();
+        }
+        else{
+            return 1;
+        }
+    }
 }

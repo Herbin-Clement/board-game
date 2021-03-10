@@ -1,6 +1,5 @@
 package game.character;
 
-import java.lang.*;
 
 import game.tile.*;
 import game.player.*;
@@ -20,7 +19,7 @@ public class Army extends Character{
     public Army(CommonTile tile, int number, Player o) {
         super(tile, o);
         this.number = number;
-        this.foodRequire = this.position.getRessource() == "sand" ? this.number * 2 : this.number;
+        this.foodRequire = this.position.getFoodRequire();
     }
     /**
      * Return the number of warriors in the army
@@ -41,21 +40,27 @@ public class Army extends Character{
      * Set the the foodRequire depending the land type
      */
     public void setFoodRequire(){
-        this.foodRequire = this.position.getRessource() == "sand" ? this.number * 2 : this.number;
+        this.foodRequire = this.position.getFoodRequire();
     }
     /**
      * Add n warriors to the army
      * @param n the number of warriors added 
      */
     public void addWarrior(int n) {
-        this.number += n;
+        int maxNb = this.position.getCapacity();
+        if(this.number + n <= maxNb){
+            this.number += n;
+        }
+        else{
+            this.number = maxNb;
+        }
         setFoodRequire();// recalculer ici pour recalculer moins de fois qu'en le mettant dans Player
     }
     /**
      * Remove half warriors to the army
      */
     public void removeWarrior() {// il faut diviser par 2
-        this.number = Math.floor(this.number/2);//etrange number est int pourtant
+        this.number =  this.number/2;//etrange number est int pourtant
         setFoodRequire();// Pareil ici
     }
     public void earnGold(int n){
@@ -64,25 +69,27 @@ public class Army extends Character{
 
 
 
-    public void fight(CommonTile tile){
+    public void meet(CommonTile tile){//creer equals
         if(!tile.isEmpty()){
-            Army ennemy = tile.getCharacter(); //probleme car de type Caracter...
-            if(ennemy.number < this.number && !this.getOwner().equals(ennemy.getOwner())){
-                if(ennemy.number>1){
-                    ennemy.removeWarrior();
-                }
-                else{
-                    ennemy.setOwner(this.getOwner());
-                }
-                this.earnGold(2);
+            Army other = (Army) tile.getCharacter(); 
+            if(other.number < this.number && !this.getOwner().equals(other.getOwner())){ //armée ennemie inférieure
+                this.fight(other);
             }
-            else if(ennemy.number > this.number && this.getOwner().equals(ennemy.getOwner())){
-                ennemy.addWarrior(1);//penser a vérifier que addWarrior vérifie les limites d'ajout
+            else if(other.number > this.number && this.getOwner().equals(other.getOwner())){ //alliées plus nombreux
+                other.addWarrior(1);
                 this.earnGold(1);
             }
         }
+    }
 
-    
+    public void fight(Army ennemy){
+        if(ennemy.number>1){
+            ennemy.removeWarrior();
+        }
+        else{
+            ennemy.setOwner(this.getOwner());
+        }
+        this.earnGold(2);
     }
 
 

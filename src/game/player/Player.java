@@ -1,24 +1,30 @@
 package game.player;
 
+import java.util.*;
+
+import game.tile.*;
+import game.character.Character;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  * 
  */
-public class Player {
+public abstract class Player {
+
     private String name;
     private int gold;
-    private int numberOfCharacter; // ?? List de character car si le joeurs vole une unité a un autre joueurs  ct on fait 
+    private List<Character> theCharacters ;  
+    private int nbCharacter;
 
     /**
      * Create a player
      * @param n name of the player 
      * @param g  quantity of gold
-     * @param nbC  number of character that the player have 
      */
-    public Player(String n, int g, int nbC) {
+    protected Player(String n, int g, int c) {
         this.name = n;
         this. gold = 0;
-        this.numberOfCharacter = nbC;
+        this.nbCharacter = c;
+        this.theCharacters = new ArrayList<>();
     }
 
     /**
@@ -35,18 +41,30 @@ public class Player {
     public int getGold(){
         return this.gold;
     }
+
     /**
-     * Return the number of Character
-     * @return number of character 
+     * 
+     * @return the numnber of character that the player have
      */
     public int getNbCharacter(){
-        return this.numberOfCharacter;
+        return this.nbCharacter;
+    }
+    
+
+
+    /**
+     * Remove a caracter
+     * @param c a character 
+     */
+    public void removeCharacter(Character c){
+        this.theCharacters.remove(c);
     }
 
+    /**
+     * Deploy a Character on a specific Tile 
+     * @param t A tile
+     */
+    public abstract void deploy(CommonTile t);
 
-    public void deploy(){
-    }
 
-    public void action(){}
 }
-

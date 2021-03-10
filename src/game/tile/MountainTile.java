@@ -1,15 +1,8 @@
 package game.tile;
 
-<<<<<<< HEAD
-public class MountainTile extends CommonTile {
-=======
-/**
- * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
- * 
- */
-public class MountainTile extends Tile {
->>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
+import game.character.Army;
 
+public class MountainTile extends CommonTile {
     
 
     /**
@@ -18,19 +11,17 @@ public class MountainTile extends Tile {
      * @param y y coordinate 
      */
     public MountainTile(int x, int y, int c, int v) {
-        super(x, y, c, v, "stone");
+        super(x, y, c, v); 
     }
 
-
-<<<<<<< HEAD
-
-=======
-    /**
-     * Return the type of ressource present
-     * @return the type of ressource present
-     */
-    public String getRessource(){
-        return RESSOURCE;
+    public int getFoodRequire(){
+        if(this.getCharacter() instanceof Army){
+            Army army = (Army) this.getCharacter();
+            return army.getNumber();
+        }
+        else{
+            return 5;
+        }
     }
->>>>>>> 5d937eeef38474307ec89c25d9e0f1b18c847cad
+
 }

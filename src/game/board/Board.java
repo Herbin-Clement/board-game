@@ -5,12 +5,12 @@ import game.tile.*;
 public abstract class Board {
     private final int width;
     private final int height;
-    private Tile[][] board;
+    private Tile[][] tiles;
 
-    public Board(int w, int h) {
+    protected Board(int w, int h) {
         this.width = w;
         this.height = h;
-        this.board = new Tile[h][w];
+        this.tiles = new Tile[h][w];
     }
 
     /**
@@ -19,14 +19,14 @@ public abstract class Board {
     public abstract void initBoard();
 
     public Tile getTile(int x, int y){
-        return this.board[y][x];
+        return this.tiles[y][x];
     }
 
     public int getWidth(){
         return this.width;
     }
 
-    public int getHeigth(){
+    public int getHeight(){
         return this.height;
     }
 }
