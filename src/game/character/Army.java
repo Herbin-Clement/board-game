@@ -4,6 +4,7 @@ package game.character;
 import game.tile.*;
 import game.player.*;
 import game.exception.*;
+import game.exception.TileCapacityException;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  * 
@@ -82,10 +83,10 @@ public class Army extends Character{
     public void meet(CommonTile tile){//creer equals
         if(!tile.isEmpty()){
             Army other = (Army) tile.getCharacter(); 
-            if(other.number < this.number && !this.getOwner().equals(other.getOwner())){ //armée ennemie inférieure
+            if(tile.considerAs() < this.position.considerAs() && !this.getOwner().equals(other.getOwner())){ //armée ennemie inférieure
                 this.fight(other);
             }
-            else if(other.number > this.number && this.getOwner().equals(other.getOwner())){ //alliées plus nombreux
+            else if(tile.considerAs() > this.position.considerAs() && this.getOwner().equals(other.getOwner())){ //alliées plus nombreux
                 other.addWarrior(1);
                 this.earnGold(1);
             }

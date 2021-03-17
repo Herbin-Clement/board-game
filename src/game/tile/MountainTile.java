@@ -24,4 +24,13 @@ public class MountainTile extends CommonTile {
         }
     }
 
+    public int considerAs(){ // methode pour Army
+        if(this.getCharacter() instanceof Army){
+            Army army = (Army) this.getCharacter();
+            return army.getNumber() + 2;
+        }
+        return 0;
+        
+    }
+
 }

@@ -5,11 +5,16 @@ import game.player.*;
 import game.board.*;
 
 public class Game {
-    private List<Player> players;
-    private Board board;
+    protected List<Player> players;
+    protected Board board;
+    protected int round;
 
-    public Game(List<Player> players){
-        this.players= players;
+    public Game(int round){
+        this.round = round;
+    }
+
+    public int getRound(){
+        return this.round;
     }
 
 //savoir ou mettre n
@@ -19,18 +24,16 @@ public class Game {
     public void play(){
         int i =0;
         boolean stop= false;
-        while(i<n && ! stop){
+        while(i<this.round && ! stop){
             for(Player player : this.players){
                 player.action(this.board);
-                player.recolte();
+                player.recolt();
                 player.feed();
             }
             if (this.board.allIsOccupated()){
                 stop=true;
             }
             i++;
-            player.daypass();
-            //pas forcement utile si on gere deja dans feed()
         }
         //ici calcul des points
     }

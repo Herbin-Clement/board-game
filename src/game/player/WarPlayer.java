@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import game.exception.*;
 import game.board.Board;
 import game.character.Army;
-import game.exception.DeployException;
 import game.tile.*;
 
 public class WarPlayer extends Player{
@@ -28,7 +27,7 @@ public class WarPlayer extends Player{
     }
 
     public void feed(){
-        for (Army army : theCharacters){
+        for (Army army : this.theCharacters){
             if (getFood() < army.getFoodRequire()){
                 this.removeCharacter(army);
                 this.gold +=1;
@@ -71,5 +70,9 @@ public class WarPlayer extends Player{
         }
     }
 
+    public void action(Board b){
+        int number = (int) (Math.random()*1);
+        if(number == 1) this.deploy(b);
+    }
 
 }

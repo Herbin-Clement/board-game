@@ -85,4 +85,10 @@ public abstract class Player {
         return common;
         
     }
+
+    public abstract void feed();
+
+    public abstract void recolt();
+
+    public abstract void action();
 }
