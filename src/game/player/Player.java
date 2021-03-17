@@ -5,6 +5,7 @@ import java.util.*;
 import game.tile.*;
 import game.board.Board;
 import game.character.Character;
+import game.exception.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  * 
@@ -25,7 +26,6 @@ public abstract class Player {
         this.name = n;
         this. gold = 0;
         this.nbCharacter = c;
-        this.theCharacters = new ArrayList<>(c);
     }
 
     /**
@@ -65,7 +65,7 @@ public abstract class Player {
      * Deploy a Character on a specific Tile 
      * @param b A board
      */
-    public abstract void deploy(Board b)throws ErrorDeploy;
+    public abstract void deploy(Board b)throws DeployException;
 
     public CommonTile chooseTile(Board board){
         boolean found = false;

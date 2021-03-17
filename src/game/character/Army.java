@@ -3,6 +3,7 @@ package game.character;
 
 import game.tile.*;
 import game.player.*;
+import game.exception.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
  * 
@@ -16,9 +17,14 @@ public class Army extends Character{
      * @param tile
      * @param number the number of warriors in the army
      */
-    public Army(CommonTile tile, int number, Player o) {
+    public Army(CommonTile tile, int number, Player o) throws CapacityArmyException{
         super(tile, o);
-        this.number = number;
+        if(number > 5){
+            throw new CapacityArmyException("An Army can contain until 5 soldiers");
+        }
+        else{
+            this.number = number;
+        }
         this.foodRequire = this.position.getFoodRequire();
     }
     /**
@@ -96,6 +102,12 @@ public class Army extends Character{
         this.earnGold(2);
     }
 
+    public void setPosition(CommonTile tile)throws TileCapacityException{
+        if(tile.getCapacity() < this.getNumber()){
+            throw new TileCapacityException("this tile can't contain this army");
+        }
+        this.position = tile;
+    }
 
 
 }
