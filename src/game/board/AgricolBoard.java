@@ -1,7 +1,5 @@
 package game.board;
 
-import javax.swing.border.Border;
-
 import game.tile.*;
 
 public class AgricolBoard extends Board{
@@ -89,11 +87,5 @@ public class AgricolBoard extends Board{
             return null;
         }
         return board;
-    }
-    public static void main(String[] args) {
-        int w = 30;
-        int h = 12;
-        AgricolBoard board = new AgricolBoard(w, h);
-        board.displayBoard();
     }
 }

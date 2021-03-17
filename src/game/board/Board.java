@@ -217,4 +217,11 @@ public abstract class Board {
         return false;
     }
 
+    public static void main(String[] args) {
+        int w = 30;
+        int h = 12;
+        AgricolBoard board = new AgricolBoard(w, h);
+        board.displayBoard();
+    }
+
 } 
