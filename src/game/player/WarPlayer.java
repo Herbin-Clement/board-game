@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import game.exception.*;
 import game.board.Board;
 import game.character.Army;
+import game.exception.DeployException;
 import game.tile.*;
 
 public class WarPlayer extends Player{
@@ -38,34 +39,37 @@ public class WarPlayer extends Player{
         }
     }
 
-    public void deploy(Board b)throws DeployException{
-        CommonTile t = this.chooseTile(b);
+    public void deploy(Board b){
         Army army;
-        if(t.isEmpty()){
-            boolean setp = false;
-            ArrayList<CommonTile> liste = b.getAdjacentCommonTile(t);
-            while(!setp){
-                 
-                try{
-                    int number = (int) (Math.random()*4 +1);
-                    army = new Army(t, number, this);
-            
-                    army.setPosition(t);
-                    t.setCharacter(army);
-                }
-                catch(TileCapacityException e){
-                    setp = true;
-                }
-            }
-            this.theCharacters.add(army);
-            for(CommonTile c : liste){
-                army.meet(c);
+        CommonTile t;
+        boolean emptyTile = false;
+        while(!emptyTile){
+            try{
+                t = this.chooseEmptyTile(b);
+                emptyTile = true;
+            }catch(TileNotEmptyException e){
             }
         }
-        else{
-            throw new DeployException("the case is Occupated");
+
+        boolean setp = false;
+        ArrayList<CommonTile> liste = b.getAdjacentCommonTile(t);
+        while(!setp){
+                 
+            try{
+                int number = (int) (Math.random()*4 +1);
+                army = new Army(t, number, this);
+            
+                army.setPosition(t);
+                t.setCharacter(army);
+                setp = true;
+            }catch(TileCapacityException e){
+            }  
+        }
+        this.theCharacters.add(army);
+        for(CommonTile c : liste){
+            army.meet(c);
         }
     }
 
-    
+
 }

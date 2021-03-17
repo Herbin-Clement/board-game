@@ -50,7 +50,6 @@ public abstract class Player {
     public int getNbCharacter(){
         return this.nbCharacter;
     }
-    
 
 
     /**
@@ -65,9 +64,9 @@ public abstract class Player {
      * Deploy a Character on a specific Tile 
      * @param b A board
      */
-    public abstract void deploy(Board b)throws DeployException;
+    public abstract void deploy(Board b);
 
-    public CommonTile chooseTile(Board board){
+    public CommonTile chooseEmptyTile(Board board)throws TileNotEmptyException{
         boolean found = false;
         Tile tile;
         CommonTile common;
@@ -79,6 +78,9 @@ public abstract class Player {
                 common = (CommonTile) tile;
                 found = true;
             }
+        }
+        if(!common.isEmpty()){
+            throw new TileNotEmptyException("the tile is not empty");
         }
         return common;
         

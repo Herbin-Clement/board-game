@@ -3,14 +3,14 @@ package game.board;
 import game.tile.*;
 
 public abstract class Board {
-    private final int width;
-    private final int height;
-    private Tile[][] tiles;
+    protected final int width;
+    protected final int height;
+    protected Tile[][] board;
 
-    protected Board(int w, int h) {
+    public Board(int w, int h) {
         this.width = w;
         this.height = h;
-        this.tiles = new Tile[h][w];
+        this.board = new Tile[h][w];
     }
 
     /**
@@ -19,7 +19,7 @@ public abstract class Board {
     public abstract void initBoard();
 
     public Tile getTile(int x, int y){
-        return this.tiles[y][x];
+        return this.board[y][x];
     }
 
     public int getWidth(){
@@ -28,5 +28,19 @@ public abstract class Board {
 
     public int getHeight(){
         return this.height;
+    }
+
+    protected int randomNumber(int min, int max) {
+        return (int) (Math.random() * ((max - min) + 1)) + min;
+    }
+    
+    protected int getWidthDiamondSquare(int w, int h) {
+        int n = w <= h ? h : w;
+        int p = 0;
+        while (!(Math.pow(2, p - 1) + 1<= n && n <= Math.pow(2, p) + 1)) {
+            p += 1;
+        }
+
+        return (int) Math.pow(2, p) + 1;
     }
 }
