@@ -45,14 +45,25 @@ public abstract class CommonTile extends Tile{
         return this.character == null;
     }
 
+    /**
+     * @return the capacity of the tile
+     */
     public int getCapacity(){
         return this.capacity;
     }
 
+    /**
+     * 
+     * @return the ressource value of the tile
+     */
     public int getRessourceValue(){
         return this.ressourceValue;
     }
 
+    /**
+     * 
+     * @return the food require of thetile
+     */
     public abstract int getFoodRequire();
 
 }

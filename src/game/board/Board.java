@@ -19,7 +19,10 @@ public abstract class Board {
      */
     public abstract void initBoard();
 
-    private void displayBoard() {
+    /**
+     * Display the board
+     */
+    public void displayBoard() {
         String line = "";
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
@@ -39,23 +42,49 @@ public abstract class Board {
             line = "";
         }
     }
-
+    
+    /**
+     * 
+     * @param x x coordonate of the tile
+     * @param y y coordonate of the tile
+     * @return return the (x,y) Tile
+     */
     public Tile getTile(int x, int y){
         return this.board[y][x];
     }
 
+    /**
+     * 
+     * @return the width of the board
+     */
     public int getWidth(){
         return this.width;
     }
 
+    /**
+     * 
+     * @return the height of the board
+     */
     public int getHeight(){
         return this.height;
     }
 
+    /**
+     * return a random number between min and max
+     * @param min the minimum of the return number
+     * @param max the maximum of the return number
+     * @return the random number
+     */
     protected int randomNumber(int min, int max) {
         return (int) (Math.random() * ((max - min) + 1)) + min;
     }
     
+    /**
+     * get the width and height for the diamond square algorithm
+     * @param w the width of the board
+     * @param h the height of the board
+     * @return the width / height value
+     */
     protected int getWidthDiamondSquare(int w, int h) {
         int n = w <= h ? h : w;
         int p = 0;
@@ -65,7 +94,12 @@ public abstract class Board {
         return (int) Math.pow(2, p) + 1;
     }
 
-    protected int[][] diamondSquare(int h) {
+    /**
+     * create an array generate by the diamond square algorithm
+     * @param h width and height of the arrays
+     * @return an array generate by the diamond square algorithm
+     */
+    protected int[][] getArrayWithDiamondSquare(int h) {
         int tempTab[][] = new int[h][h];
         tempTab[0][0] = this.randomNumber(-h, h);
         tempTab[0][h - 1] = this.randomNumber(-h, h);
@@ -114,19 +148,31 @@ public abstract class Board {
         return tempTab;
     }
 
+    /**
+     * cut the 2 dimmensional array generate by the diamond square algorithm into a smaller one
+     * @param w width of the board
+     * @param h height of the board
+     * @param tempTab 2 dimmensional array generate by the diamond square algorithm
+     * @return 2 dimensional array with the right proportions
+     */
     protected int[][] cutArray(int w, int h, int[][] tempTab) {
         int tab[][] = new int[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (i < width && j < height) {
-                    tab[i][j] = (int) Math.round(tempTab[i][j]);
-                    
+                    tab[i][j] = (int) Math.round(tempTab[i][j]);      
                 }
             }
         }
         return tab;
     }
 
+    /**
+     * get an sorted array with the values of all cell
+     * @param tab the tab where values are extract
+     * @param nbValues the number of values
+     * @return the array with values
+     */
     protected int[] getValues(int[][] tab, int nbValues) {
         int[] values = new int[nbValues];
         int count = 0;
@@ -138,6 +184,37 @@ public abstract class Board {
         }
         Arrays.sort(values);
         return values;
+    }
+
+    /**
+     * Check if the (x, y) tile have neighbor
+     * @param board the board
+     * @param x x coordinate of the tile
+     * @param y y coordinate of the tile
+     * @return true if (x,y) have neighbor and false if not
+     */ 
+    protected boolean haveNeighbor(Tile[][] board, int x, int y) {
+        if (x - 1 >= 0) {
+            if (!(board[x - 1][y] instanceof OceanTile)) {
+                return true;
+            }
+        }
+        if (x + 1 < this.getWidth()) {
+            if (!(board[x + 1][y] instanceof OceanTile)) {
+                return true;
+            }
+        }
+        if (y - 1 >= 0) {
+            if (!(board[x][y - 1] instanceof OceanTile)) {
+                return true;
+            }
+        }
+        if (y + 1 < this.getHeight()) {
+            if (!(board[x][y + 1] instanceof OceanTile)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 } 
