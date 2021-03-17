@@ -1,8 +1,8 @@
 package game.tile;
 
 
+import game.character.*;
 import game.character.Character;
-
 
 public abstract class CommonTile extends Tile{
     private Character character;
@@ -66,4 +66,12 @@ public abstract class CommonTile extends Tile{
      */
     public abstract int getFoodRequire();
 
+    public int considerAs(){ // methode pour Army
+        if(this.getCharacter() instanceof Army){
+            Army army = (Army) this.getCharacter();
+            return army.getNumber();
+        }
+        return 0;
+        
+    }
 }

@@ -10,7 +10,7 @@ import game.tile.*;
 import game.exception.*;
 
 public class AgricolPlayer extends Player{
-
+    protected int ressource;
     /**
      * Create a player for the agricol game
      * @param n name of the player
@@ -18,6 +18,7 @@ public class AgricolPlayer extends Player{
     public AgricolPlayer(String n){
         super(n,15,10);
         this.theCharacters = new ArrayList<Worker>(10);
+        this.ressource = 0;
     }
     /**
      * 
@@ -59,8 +60,32 @@ public class AgricolPlayer extends Player{
     public void recolt(){
         for(Worker w : this.theCharacters){
             if(w.haveHarvest()){
-                this.gold += w.getPosition().getRessourceValue();
+                this.ressource += w.getPosition().getRessourceValue();
             }
         }
     }
+
+    public void action(Board b){
+        int number = (int) (Math.random()*2);
+        if(number == 1) this.deploy(b);
+
+        else if(number == 0) this.change();
+
+        else{
+            for(Worker worker : theCharacters){
+                if(worker.getPosition() instanceof ForestTile || worker.getPosition() instanceof PlainTile){
+                    this.gold += 1;
+                }
+                else if(worker.getPosition() instanceof DesertTile) {
+                    this.gold += 2;
+                    
+            }
+        }
+    }
+
+    public void change(){
+        this.gold += this.ressource;
+        this.ressource = 0;
+    }
+    
 }
