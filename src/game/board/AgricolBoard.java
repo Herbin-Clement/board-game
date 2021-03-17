@@ -55,25 +55,23 @@ public class AgricolBoard extends Board{
     }
 
     public void initBoard() {
-        int h = this.getWidth();
-        int nbValues = h * h;
-        int tab[][] = new int[h][h];
-        for (int x = 0; x < h; x++) {
-            for (int y = 0; y < h; y++) {
-                tab[x][y] = 0;
-            }
-        }
-        tab[0][0] = this.randomNumber(-h, h);
-        tab[0][h - 1] = this.randomNumber(-h, h);
-        tab[h - 1][0] = this.randomNumber(-h, h);
-        tab[h - 1][h - 1] = this.randomNumber(-h, h);
+        int width = this.getWidth();
+        int height = this.getHeight();
+        int h = this.getWidthDiamondSquare(width, height);
+        System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
+        int nbValues = width * height;
+        int tempTab[][] = new int[h][h];
+        tempTab[0][0] = this.randomNumber(-h, h);
+        tempTab[0][h - 1] = this.randomNumber(-h, h);
+        tempTab[h - 1][0] = this.randomNumber(-h, h);
+        tempTab[h - 1][h - 1] = this.randomNumber(-h, h);
         int i = h - 1;
         while (i > 1) {
             int id = (int) (i / 2);
             for (int x = id; x < h; x += i) {
                 for (int y = id; y < h; y += i) {
-                    int m = (tab[x - id][y - id] + tab[x - id][y + id] + tab[x + id][y + id] + tab[x + id][y - id]) / 4;
-                    tab[x][y] = m + this.randomNumber(-id, id);
+                    int m = (tempTab[x - id][y - id] + tempTab[x - id][y + id] + tempTab[x + id][y + id] + tempTab[x + id][y - id]) / 4;
+                    tempTab[x][y] = m + this.randomNumber(-id, id);
                 }
             }
             int d = 0;
@@ -87,62 +85,88 @@ public class AgricolBoard extends Board{
                     int s = 0;
                     int n = 0;
                     if (x >= id) {
-                        s = s + tab[x - id][y];
+                        s = s + tempTab[x - id][y];
                         n = n + 1;
                     }
                     if (x + id < h) {
-                        s = s + tab[x + id][y];   
+                        s = s + tempTab[x + id][y];   
                         n = n + 1;
                     }
                     if (y >= id) {
-                        s = s + tab[x][y - id];
+                        s = s + tempTab[x][y - id];
                         n = n + 1;
                     }
                     if (y + id < h) {
-                        s = s + tab[x][y + id];
+                        s = s + tempTab[x][y + id];
                         n = n + 1;
                     }
-                    tab[x][y] = s / n + this.randomNumber(-id, id);
+                    tempTab[x][y] = s / n + this.randomNumber(-id, id);
                 }
             }
             i = id;
         }
+        
+        int tab[][] = new int[width][height];
+        for (i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (i < width && j < height) {
+                    tab[i][j] = tempTab[i][j];
+                }
+            }
+        }
+
         int[] values = new int[nbValues];
         int count = 0;
-        for (int k = 0; k < tab.length; k++) {
-            for (int l = 0; l < tab.length; l++) {
-                tab[k][l] = (int) Math.round(tab[k][l]);
-                values[count] = tab[k][l];
+        for (int k = 0; k < width; k++) {
+            for (int l = 0; l < height; l++) {
+                tab[k][l] = (int) Math.round(tempTab[k][l]);
+                values[count] = tempTab[k][l];
                 count += 1;
             }
         }
+
         Arrays.sort(values);
         for (int j = 0; j < values.length; j++) {
             values[j] += Math.abs(values[0]);
         }
+        int ocean = 0;
+        int other = 0;
         String line = "";
-        for (int y = 0; y < this.getHeight(); y++) {
-            for (int x = 0; x < this.getWidth(); x++) {
-                if (tab[x][y] < values[(int) nbValues * 67 / 100]) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (tab[x][y] < values[(int) nbValues * 67 / 100] + 1) {
                     line += " .";
-                } else if (tab[x][y] < values[(int) nbValues * 75 / 100]) {
+                    ocean++;
+                } else if (tab[x][y] < values[(int) nbValues * 76 / 100]) {
                     line += " D";
-                } else if (tab[x][y] < values[(int) nbValues * 83 / 100]) {
+                    other++;
+                } else if (tab[x][y] < values[(int) nbValues * 84 / 100]) {
                     line += " P";
-                } else if (tab[x][y] < values[(int) nbValues * 91 / 100]) {
+                    other++;
+                } else if (tab[x][y] < values[(int) nbValues * 92 / 100]) {
                     line += " F";
+                    other++;
                 } else {
                     line += " M";
+                    other++;
                 }
             }
             System.out.println(line);
             line = "";
         }
+        int total = other + ocean;
+        System.out.println(String.format("total : %s", total));
+        System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
+        System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
+        if (ocean * 100 / total > 80) {
+            this.initBoard();
+        }
     }
  
     public static void main(String[] args) {
-        int l = 33;
-        AgricolBoard board = new AgricolBoard(l, l);
+        int w = 20;
+        int h = 20;
+        AgricolBoard board = new AgricolBoard(w, h);
         board.initBoard();
         // board.displayBoard();
     }
