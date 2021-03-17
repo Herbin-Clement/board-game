@@ -3,6 +3,7 @@ package game.tile;
 
 import game.character.Character;
 
+
 public abstract class CommonTile extends Tile{
     private Character character;
     private int capacity;
@@ -33,7 +34,7 @@ public abstract class CommonTile extends Tile{
      * Set the character which on the tile
      * @param c a character
      */
-    public void setCharacter(Character c){
+    public void setCharacter(Character c){  
         this.character = c;
     }
     /**

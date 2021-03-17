@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import game.board.Board;
 import game.character.Army;
+import game.exception.DeployException;
 import game.tile.*;
 
 public class WarPlayer extends Player{
@@ -12,7 +13,7 @@ public class WarPlayer extends Player{
     public WarPlayer(String n){
         super(n, 0, 35);
         this.food = 10;
-        this.theCharacters = new ArrayList<Army>();//ohlala!
+        this.theCharacters = new ArrayList<Army>();
     }
 
     public int getFood(){
@@ -37,7 +38,7 @@ public class WarPlayer extends Player{
         }
     }
 
-    public void deploy(Board b)throws ErrorDeploy{
+    public void deploy(Board b)throws DeployException{
         CommonTile t = this.chooseTile(b);
         
         if(t.isEmpty()){
@@ -52,7 +53,7 @@ public class WarPlayer extends Player{
             }
         }
         else{
-            throw new ErrorDeploy("the case is Occupated");
+            throw new DeployException("the case is Occupated");
         }
     }
 
