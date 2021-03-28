@@ -39,13 +39,7 @@ public class Army extends Character{
     public int getFoodRequire(){
         return this.foodRequire;
     }
-    /**
-     * Return the quantity of food necesarry to feed the army
-     * @return the quantity of food necesarry to feed the army
-     */
-    public int getFood() {
-        return this.foodRequire;
-    }
+
 
     /**
      * Set the the foodRequire depending the land type
