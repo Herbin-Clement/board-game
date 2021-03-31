@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import game.board.Board;
 import game.character.Worker;
+import game.character.Character;
 import game.tile.*;
 import game.exception.*;
 
@@ -43,13 +44,13 @@ public class AgricolPlayer extends Player{
      * feed all the workers
      */
     public void feed(){
-        for(Worker w : this.theCharacters){
-            if(this.gold - w.getGoldRequire()< 0){
+        for(Character w : this.theCharacters){
+            if(this.gold - ((Worker) w).getGoldRequire()< 0){
                 this.theCharacters.remove(w);
                 this.gold = 0; // pour que la quantité d'or du joueur ne soit < 0 
             }
             else{
-                this.gold -= w.getGoldRequire();
+                this.gold -= ((Worker) w).getGoldRequire();
             }
         }
 
@@ -59,8 +60,8 @@ public class AgricolPlayer extends Player{
      * recolte the ressources of worker's tile
      */
     public void recolt(){
-        for(Worker w : this.theCharacters){
-            if(w.haveHarvest()){
+    	for(Character w : this.theCharacters){
+            if(((Worker) w).haveHarvest()){
                 this.ressource += w.getPosition().getRessourceValue();
             }
         }
@@ -77,11 +78,11 @@ public class AgricolPlayer extends Player{
         else if(number == 0) this.change();
 
         else{
-            for(Worker worker : theCharacters){
-                if(worker.getPosition() instanceof ForestTile || worker.getPosition() instanceof PlainTile){
+        	for(Character w : theCharacters){
+                if(((Worker) w).getPosition() instanceof ForestTile || ((Worker) w).getPosition() instanceof PlainTile){
                     this.gold += 1;
                 }
-                else if(worker.getPosition() instanceof DesertTile) {
+                else if(((Worker) w).getPosition() instanceof DesertTile) {
                     this.gold += 2;
                 }
             }
@@ -101,8 +102,8 @@ public class AgricolPlayer extends Player{
      */
     public int score(){
         int score = 0;
-        for(Worker worker : this.theCharacters){
-            score += worker.getGold();
+        for(Character w : this.theCharacters){
+            score += ((Worker) w).getGold();
         }
         return score;
     }

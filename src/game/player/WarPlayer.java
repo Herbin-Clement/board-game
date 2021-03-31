@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import game.exception.*;
 import game.board.Board;
 import game.character.Army;
+import game.character.Character;
 import game.tile.*;
 
 public class WarPlayer extends Player{
@@ -32,7 +33,7 @@ public class WarPlayer extends Player{
      * recolte ressources on armies's tiles
      */
     public void recolt(){
-        for(Army a : this.theCharacters){
+        for(Character a : this.theCharacters){
             this.food += a.getPosition().getRessourceValue();
         }
     }
@@ -41,13 +42,13 @@ public class WarPlayer extends Player{
      * feed all his armies
      */
     public void feed(){
-        for (Army army : this.theCharacters){
-            if (getFood() < army.getFoodRequire()){
-                this.removeCharacter(army);
+    	for(Character a : this.theCharacters){
+            if (getFood() < ((Army) a).getFoodRequire()){
+                this.removeCharacter((Army) a);
                 this.gold +=1;
             }
             else{
-                this.food -= army.getFoodRequire();
+                this.food -=  ((Army) a).getFoodRequire();
             }
         }
     }
@@ -102,10 +103,10 @@ public class WarPlayer extends Player{
     public int score(){
         int nbOfTerritory = 0;
         int score = 0;
-        for(Army army : this.theCharacters){
+        for(Character a : this.theCharacters){
             nbOfTerritory ++;
-            if(army.getPosition() instanceof PlainTile) score += 1;
-            else if (army.getPosition() instanceof ForestTile) score += 2;
+            if( ((Army) a).getPosition() instanceof PlainTile) score += 1;
+            else if ( ((Army) a).getPosition() instanceof ForestTile) score += 2;
             else score += 4;
         }
         if(nbOfTerritory >= 10) score += 5;
