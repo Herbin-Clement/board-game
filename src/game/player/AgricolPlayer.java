@@ -5,7 +5,7 @@ package game.player;
 import java.util.ArrayList;
 
 import game.board.Board;
-import game.character.Worker;
+import game.character.*;
 import game.tile.*;
 import game.exception.*;
 
@@ -17,7 +17,7 @@ public class AgricolPlayer extends Player{
      */
     public AgricolPlayer(String n){
         super(n,15,10);
-        this.theCharacters = new ArrayList<Worker>(10);
+        this.theCharacters = new ArrayList<Worker>(10); 
         this.ressource = 0;
     }
     /**
@@ -78,7 +78,7 @@ public class AgricolPlayer extends Player{
                 }
                 else if(worker.getPosition() instanceof DesertTile) {
                     this.gold += 2;
-                    
+                }  
             }
         }
     }
