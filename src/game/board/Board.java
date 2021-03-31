@@ -2,6 +2,8 @@ package game.board;
 
 import game.tile.*;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Board {
     protected final int width;
@@ -236,6 +238,31 @@ public abstract class Board {
             }
         }
         return false;
+    }
+
+    public List<CommonTile> getAdjacentCommonTile(Tile[][] board, int x, int y) {
+        List<CommonTile> tiles = new ArrayList<CommonTile>(4);
+        if (x - 1 >= 0) {
+            if (!(board[x - 1][y] instanceof OceanTile)) {
+                tiles.add((CommonTile) board[x - 1][y]);
+            }
+        }
+        if (x + 1 < this.getWidth()) {
+            if (!(board[x + 1][y] instanceof OceanTile)) {
+                tiles.add((CommonTile) board[x + 1][y]);
+            }
+        }
+        if (y - 1 >= 0) {
+            if (!(board[x][y - 1] instanceof OceanTile)) {
+                tiles.add((CommonTile) board[x][y - 1]);
+            }
+        }
+        if (y + 1 < this.getHeight()) {
+            if (!(board[x][y + 1] instanceof OceanTile)) {
+                tiles.add((CommonTile) board[x][y + 1]);
+            }
+        }
+        return tiles;
     }
 
     public static void main(String[] args) {

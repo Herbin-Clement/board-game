@@ -15,7 +15,7 @@ public abstract class Player {
 
     protected String name;
     protected int gold;
-    protected List<Character> theCharacters ;  
+    protected List<Character> theCharacters;  
     protected int nbCharacter;
 
     /**

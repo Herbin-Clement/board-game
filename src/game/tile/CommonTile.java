@@ -4,7 +4,7 @@ package game.tile;
 import game.character.*;
 import game.character.Character;
 
-public abstract class CommonTile extends Tile{
+public abstract class CommonTile extends Tile {
     protected Character character;
     protected int capacity;
     protected int ressourceValue;
