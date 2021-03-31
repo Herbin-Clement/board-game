@@ -7,7 +7,7 @@ import game.board.*;
 public class Game {
     protected List<Player> players;
     protected Board board;
-
+    protected int round;
 
     public Game(int round){
         this.round = round;
