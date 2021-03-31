@@ -15,16 +15,17 @@ public class AgricolBoard extends Board{
         int width = this.getWidth();
         int height = this.getHeight();
         int h = this.getWidthDiamondSquare(width, height);
-        System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
-
+        // System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
         int nbValues = width * height;
+        // get an 2 dimensionnal array of int with the diamond square algorithm
         int tempTab[][] = this.getArrayWithDiamondSquare(h);
-
+        // Cut the 2 dimensionnal array to get a tab[width][height]
         int tab[][] = this.cutArray(width, height, tempTab);
-
+        // Get the values of tab in a sorted array
         int[] values = this.getValues(tab, nbValues);
-        
+        // Change the int values of tab[][] for Tile
         Tile[][] board = this.getTileBoard(tab, values, nbValues, width, height);
+        // if this.getTileBoard(...) return null, we cann a new this.initBoard() to get a better Board.
         if (board == null) {
             this.initBoard();
         } else {
@@ -45,8 +46,11 @@ public class AgricolBoard extends Board{
         Tile[][] board = new Tile[w][h];
         int ocean = 0;
         int other = 0;
+        // Change the int of the tab for Tile
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
+                // if the value of the tab[x][y] is lower than the values[(int) nbValues * 67 / 100] + 1, set the tab[x][y] to a OceanTile
+                // values[(int) nbValues * 67 / 100] is the value that 67% or more of the tile will be Ocean Tile
                 if (tab[x][y] < values[(int) nbValues * 67 / 100] + 1) {
                     board[x][y] = new OceanTile(x, y);
                     ocean++;
@@ -67,6 +71,7 @@ public class AgricolBoard extends Board{
         }
         this.board = board;
         this.displayBoard();
+        // Test if all CommonTile have a neighbor, if not, replace the CommonTile for a OceanTile
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.height; y++) {
                 if (!(board[x][y] instanceof OceanTile)) {
@@ -82,9 +87,11 @@ public class AgricolBoard extends Board{
         System.out.println(String.format("total : %s", total));
         System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
         System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
+        // if the % of OceanTile is greater than 75%, return null and call initBoard()
         if (ocean * 100 / total > 75) {
             return null;
         }
+        // set the capacity to the number of CommonTile of the board 
         this.capacity = other;
         return board;
     }
