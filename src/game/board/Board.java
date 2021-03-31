@@ -6,11 +6,15 @@ import java.util.Arrays;
 public abstract class Board {
     protected final int width;
     protected final int height;
+    protected int capacity;
+    protected int currentTilesUse;
     protected Tile[][] board;
 
     public Board(int w, int h) {
         this.width = w;
         this.height = h;
+        this.capacity = 0;
+        this.currentTilesUse = 0;
         initBoard();
     }
 
@@ -18,6 +22,23 @@ public abstract class Board {
      * Create a board
      */
     public abstract void initBoard();
+
+    /**
+     * return true if all common tile are occupated
+     * @return true if all common tile are occupated and false if not
+     */
+    public boolean allIsOccupated() {
+        if (this.capacity == this.currentTilesUse) {
+            return true;
+        }
+        return false;
+    }
+
+    public void addOrRemoveCurrentTilesUse(int i) {
+        this.currentTilesUse += i;
+    }
+
+
 
     /**
      * Display the board

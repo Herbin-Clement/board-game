@@ -2,6 +2,7 @@ package game.character;
 
 import game.tile.*;
 import game.player.*;
+import game.exception.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon
  */
@@ -37,7 +38,7 @@ public abstract class Character {
      * Set the character position
      * @param tile the new position 
      */
-    public void setPosition(CommonTile tile) {
+    public void setPosition(CommonTile tile) throws TileCapacityException  {
         this.position = tile;
     }
     /**
