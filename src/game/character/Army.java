@@ -97,7 +97,7 @@ public class Army extends Character{
         this.earnGold(2);
     }
 
-    public void setPosition(CommonTile tile)throws TileCapacityException{
+    public void setPosition(CommonTile tile) throws TileCapacityException{
         if(tile.getCapacity() < this.getNumber()){
             throw new TileCapacityException("this tile can't contain this army");
         }

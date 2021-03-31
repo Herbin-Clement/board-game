@@ -66,11 +66,11 @@ public abstract class Player {
      */
     public abstract void deploy(Board b);
 
-    public CommonTile chooseEmptyTile(Board board)throws TileNotEmptyException{
+    public CommonTile chooseEmptyTile(Board board) throws TileNotEmptyException {
         boolean found = false;
         Tile tile;
         CommonTile common;
-        while(!found){
+        do {
             int numberX = (int) (Math.random()*board.getWidth());
             int numberY = (int) (Math.random()*board.getHeight());
             tile = board.getTile(numberX, numberY);
@@ -78,7 +78,7 @@ public abstract class Player {
                 common = (CommonTile) tile;
                 found = true;
             }
-        }
+        } while(!found);
         if(!common.isEmpty()){
             throw new TileNotEmptyException("the tile is not empty");
         }
@@ -90,5 +90,5 @@ public abstract class Player {
 
     public abstract void recolt();
 
-    public abstract void action();
+    public abstract void action(Board b);
 }

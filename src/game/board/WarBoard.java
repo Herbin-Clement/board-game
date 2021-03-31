@@ -51,16 +51,16 @@ public class WarBoard extends Board{
                     board[x][y] = new OceanTile(x, y);
                     ocean++;
                 } else if (tab[x][y] < values[(int) nbValues * 76 / 100] + 1) {
-                    board[x][y] = new DesertTile(x, y, 0, 0);
+                    board[x][y] = new DesertTile(x, y, 3, 0);
                     other++;
                 } else if (tab[x][y] < values[(int) nbValues * 84 / 100] + 1) {
-                    board[x][y] = new PlainTile(x, y, 0, 0);
+                    board[x][y] = new PlainTile(x, y, 5, 5);
                     other++;
                 } else if (tab[x][y] < values[(int) nbValues * 92 / 100] + 1) {
-                    board[x][y] = new ForestTile(x, y, 0, 0);
+                    board[x][y] = new ForestTile(x, y, 5, 1);
                     other++;
                 } else {
-                    board[x][y] = new MountainTile(x, y, 0, 0);
+                    board[x][y] = new MountainTile(x, y, 3, 0);
                     other++;
                 }
             }

@@ -1,6 +1,5 @@
 # Equipe
 
-- Simon Longatte
 - Léa Grassien
 - Alexis Codevelle
 - Clément Herbin
