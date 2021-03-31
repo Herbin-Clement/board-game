@@ -21,10 +21,10 @@ public class AgricolPlayer extends Player{
         this.ressource = 0;
     }
     /**
-     * 
+     * @param b board of this game
      */
     public void deploy(Board b){
-        CommonTile t;
+        CommonTile t = null;
         boolean emptyTile = false;
         while(!emptyTile){
             try{
@@ -40,7 +40,7 @@ public class AgricolPlayer extends Player{
     }
 
     /**
-     * 
+     * feed all the workers
      */
     public void feed(){
         for(Worker w : this.theCharacters){
@@ -54,8 +54,9 @@ public class AgricolPlayer extends Player{
         }
 
     }
+
     /**
-     * 
+     * recolte the ressources of worker's tile
      */
     public void recolt(){
         for(Worker w : this.theCharacters){
@@ -65,6 +66,10 @@ public class AgricolPlayer extends Player{
         }
     }
 
+    /**
+     * choice of the AgricolPlayer between deploy a worker, change ressources to gold and do nothing
+     * @param b board of this game
+     */
     public void action(Board b){
         int number = (int) (Math.random()*2);
         if(number == 1) this.deploy(b);
@@ -83,11 +88,17 @@ public class AgricolPlayer extends Player{
         }
     }
 
+    /**
+     * change ressourses to gold
+     */
     public void change(){
         this.gold += this.ressource;
         this.ressource = 0;
     }
     
+    /**
+     * final score of the AgricolPlayer
+     */
     public int score(){
         int score = 0;
         for(Worker worker : this.theCharacters){

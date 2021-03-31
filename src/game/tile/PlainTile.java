@@ -13,7 +13,9 @@ public class PlainTile extends CommonTile {
         super(x, y, c, v);
     }
 
-
+    /**
+     * @return food require on this tile
+     */
     public int getFoodRequire(){
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();

@@ -66,6 +66,10 @@ public abstract class CommonTile extends Tile {
      */
     public abstract int getFoodRequire();
 
+    /**
+     * 
+     * @return the number of soldier considered by the ennemy  on the tile
+     */
     public int considerAs(){ // methode pour Army
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();

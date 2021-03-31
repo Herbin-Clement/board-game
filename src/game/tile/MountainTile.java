@@ -14,6 +14,9 @@ public class MountainTile extends CommonTile {
         super(x, y, c, v); 
     }
 
+    /**
+     * @return food require on this tile
+     */
     public int getFoodRequire(){
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();
@@ -24,6 +27,10 @@ public class MountainTile extends CommonTile {
         }
     }
 
+    /**
+     * 
+     * @return the number of soldier considered by the ennemy  on the tile
+     */
     public int considerAs(){ // methode pour Army
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();

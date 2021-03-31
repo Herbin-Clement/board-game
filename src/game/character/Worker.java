@@ -40,7 +40,7 @@ public class Worker extends Character {
     }
 
     /**
-     * 
+     * pay of the worker
      */
     public void earnGold(int n) {
         this.gold += this.goldRequire;
@@ -50,6 +50,6 @@ public class Worker extends Character {
         Worker w = new Worker(null, null);
         if (w instanceof Character) {
             System.out.println("oui");
-        };
+        }
     }
 }

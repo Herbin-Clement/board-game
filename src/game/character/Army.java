@@ -36,6 +36,10 @@ public class Army extends Character{
         return this.number;
     }
 
+    /**
+     * 
+     * @return the food require
+     */
     public int getFoodRequire(){
         return this.foodRequire;
     }
@@ -68,12 +72,20 @@ public class Army extends Character{
         this.number =  this.number/2;//etrange number est int pourtant
         setFoodRequire();// Pareil ici
     }
+
+    /**
+     * gold earned
+     * @param n gold to add
+     */
     public void earnGold(int n){
         this.gold += n;
     }
 
 
-
+    /**
+     * meet potential army in adjacent tile
+     * @param tile adjacent tile
+     */
     public void meet(CommonTile tile){//creer equals
         if(!tile.isEmpty()){
             Army other = (Army) tile.getCharacter(); 
@@ -87,6 +99,10 @@ public class Army extends Character{
         }
     }
 
+    /**
+     * consiquences between the deployement of the army next to an ennemy army
+     * @param ennemy ennemy army 
+     */
     public void fight(Army ennemy){
         if(ennemy.number>1){
             ennemy.removeWarrior();
@@ -97,6 +113,10 @@ public class Army extends Character{
         this.earnGold(2);
     }
 
+    /**
+     * @param tile tile which have to accept the army
+     * @exception TileCapacityException the tile can't contain the army
+     */
     public void setPosition(CommonTile tile) throws TileCapacityException {
         if(tile.getCapacity() < this.getNumber()){
             throw new TileCapacityException("this tile can't contain this army");
