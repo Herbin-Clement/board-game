@@ -29,6 +29,8 @@ Tuiles modélisées
 ## Livrable 3
 
 ### Atteinte des objectifs
+L'objectif est atteint. Le plateau modélisés dans son ensemble. Nous avons 2 types de plateaux différents celon le type de jeu donc 2 classes, qui héritent d'une classe abstraite Board.
+
 
 ### Difficultés restant à résoudre
 
@@ -54,13 +56,16 @@ Nous avons continué le travail de l'écriture des classes de la semaine derniè
 
 ## Semaine 4
 
-Nous avons du remodéliser les tuiles car cela ne correspondait pas pour notre projet. Nous continuons à modéliser le plateau
+Nous avons du remodéliser les tuiles car cela ne corespondait pas pour notre projet. Nous continuons à modéliser le plateau et écrit le code des classes nécessaire à sa représentation 
 
 ## Semaine 5
+Nous avons affiné le travail de la semaine précèdent, quelques modifications on été apporté. En parralèlles nous avons modéliser les joueurs et ecrit le début de ces classes.
 
 ## Semaine 6
+Nous avons continué l'écriture des classes Player, WarPlayer et AgricolPlayer, notamment sur la modélisation des différentes actions possibles. En parrallèles nous avons restructurer les plateaux ( décompositon de la l'initialisation en plusieurs méthodes). 
 
 ## Semaine 7
+Nous avons la  commencé compilation des différents package ce qui nous as permis de corrigé des erreurs.
 
 ## Semaine 8
 
