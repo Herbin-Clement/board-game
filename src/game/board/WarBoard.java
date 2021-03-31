@@ -70,7 +70,6 @@ public class WarBoard extends Board{
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.height; y++) {
                 if (!(board[x][y] instanceof OceanTile)) {
-                    // System.out.println(String.format("(%s, %s)", x, y));
                     if (!this.haveNeighbor(board, x, y)) {
                         board[x][y] = new OceanTile(x, y);
                         other--;
@@ -86,6 +85,7 @@ public class WarBoard extends Board{
         if (ocean * 100 / total > 75) {
             return null;
         }
+        this.capacity = other;
         return board;
     }
 }

@@ -78,7 +78,7 @@ public class AgricolPlayer extends Player{
                 }
                 else if(worker.getPosition() instanceof DesertTile) {
                     this.gold += 2;
-                    
+                }
             }
         }
     }
