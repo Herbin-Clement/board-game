@@ -5,7 +5,7 @@ import game.player.*;
 import game.board.*;
 
 public class Game {
-    protected List<Player> players;
+    protected List<? extends Player> players;
     protected Board board;
     protected int round;
 
@@ -36,6 +36,9 @@ public class Game {
             }
             i++;
         }
-        //ici calcul des points
+        Player maxPlayer = this.players.get(0);
+        for(Player player : this.players){
+            if(player.score() > maxPlayer.score()) maxPlayer = player;
+        }
     }
 }

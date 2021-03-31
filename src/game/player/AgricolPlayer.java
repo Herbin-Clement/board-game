@@ -88,4 +88,11 @@ public class AgricolPlayer extends Player{
         this.ressource = 0;
     }
     
+    public int score(){
+        int score = 0;
+        for(Worker worker : this.theCharacters){
+            score += worker.getGold();
+        }
+        return score;
+    }
 }

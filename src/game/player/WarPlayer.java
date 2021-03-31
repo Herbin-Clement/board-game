@@ -75,4 +75,18 @@ public class WarPlayer extends Player{
         if(number == 1) this.deploy(b);
     }
 
+    public int score(){
+        int nbOfTerritory = 0;
+        int score = 0;
+        for(Army army : this.theCharacters){
+            nbOfTerritory ++;
+            if(army.getPosition() instanceof PlainTile) score += 1;
+            else if (army.getPosition() instanceof ForestTile) score += 2;
+            else score += 4;
+        }
+        if(nbOfTerritory >= 10) score += 5;
+
+        return score + this.gold;
+    }
+
 }

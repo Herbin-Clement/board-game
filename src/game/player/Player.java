@@ -14,7 +14,7 @@ public abstract class Player {
 
     protected String name;
     protected int gold;
-    protected List<Character> theCharacters ;  
+    protected List<? extends Character> theCharacters ;  
     protected int nbCharacter;
 
     /**
@@ -69,7 +69,7 @@ public abstract class Player {
     public CommonTile chooseEmptyTile(Board board) throws TileNotEmptyException {
         boolean found = false;
         Tile tile;
-        CommonTile common;
+        CommonTile common = null;
         do {
             int numberX = (int) (Math.random()*board.getWidth());
             int numberY = (int) (Math.random()*board.getHeight());
@@ -91,4 +91,6 @@ public abstract class Player {
     public abstract void recolt();
 
     public abstract void action(Board b);
+
+    public abstract int score();
 }

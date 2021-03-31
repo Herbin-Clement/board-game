@@ -2,6 +2,7 @@ package game;
 
 import java.util.List;
 
+import game.board.WarBoard;
 import game.player.*;
 public class WarGame extends Game{
 
