@@ -46,5 +46,10 @@ public class Worker extends Character {
         this.gold += this.goldRequire;
     }
 
-
+    public static void main(String[] args) {
+        Worker w = new Worker(null, null);
+        if (w instanceof Character) {
+            System.out.println("oui");
+        };
+    }
 }
