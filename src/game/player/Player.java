@@ -5,6 +5,7 @@ import java.util.*;
 import game.tile.*;
 import game.board.Board;
 import game.character.Character;
+
 import game.exception.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
@@ -65,7 +66,7 @@ public abstract class Player {
      * @param b A board
      */
     public abstract void deploy(Board b);
-
+    
     public CommonTile chooseEmptyTile(Board board) throws TileNotEmptyException {
         boolean found = false;
         Tile tile;
@@ -85,7 +86,7 @@ public abstract class Player {
         return common;
         
     }
-
+    
     public abstract void feed();
 
     public abstract void recolt();
