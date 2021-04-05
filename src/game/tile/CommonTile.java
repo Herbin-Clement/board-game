@@ -14,6 +14,8 @@ public abstract class CommonTile extends Tile {
      * Create a tile
      * @param x x coordinate
      * @param y y coordinate
+     * @param c c capacity
+     * @param v v ressource value
      */
     protected CommonTile(int x, int y, int c, int v) {
         super(x,y);
@@ -78,4 +80,5 @@ public abstract class CommonTile extends Tile {
         return 0;
         
     }
+
 }

@@ -63,14 +63,14 @@ public class Army extends Character{
         else{
             this.number = maxNb;
         }
-        setFoodRequire();// recalculer ici pour recalculer moins de fois qu'en le mettant dans Player
+        this.setFoodRequire();// recalculer ici pour recalculer moins de fois qu'en le mettant dans Player
     }
     /**
      * Remove half warriors to the army
      */
     public void removeWarrior() {// il faut diviser par 2
-        this.number =  this.number/2;//etrange number est int pourtant
-        setFoodRequire();// Pareil ici
+        this.number =  this.number/2;
+        this.setFoodRequire();
     }
 
     /**

@@ -1,6 +1,8 @@
 package game.player;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import game.exception.*;
 import game.board.Board;
@@ -69,7 +71,7 @@ public class WarPlayer extends Player{
         }
 
         boolean setp = false;
-        ArrayList<CommonTile> liste = b.getAdjacentCommonTile(t);
+        List<CommonTile> liste = b.getAdjacentCommonTile(t);
         while(!setp){ // choix de la taille de l'armée possible pour la tuile
                  
             try{
@@ -94,7 +96,11 @@ public class WarPlayer extends Player{
      */
     public void action(Board b){
         int number = (int) (Math.random()*1);
-        if(number == 1) this.deploy(b);
+        if(number == 1) {
+            System.out.println(this.getName() + " deploy an army !");
+            this.deploy(b);
+        }
+        System.out.println(this.getName() + " decide to do nothing !");
     }
 
     /**

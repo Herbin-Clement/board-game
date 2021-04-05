@@ -9,6 +9,8 @@ public class MountainTile extends CommonTile {
      * Create a mountain tile
      * @param x x coordinate 
      * @param y y coordinate 
+     * @param c c capacity
+     * @param v v ressource value
      */
     public MountainTile(int x, int y, int c, int v) {
         super(x, y, c, v); 

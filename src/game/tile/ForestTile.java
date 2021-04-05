@@ -9,6 +9,8 @@ public class ForestTile extends CommonTile {
      * Create a Forest Tile
      * @param x x coordinate
      * @param y y coordinate
+     * @param c c capacity
+     * @param v v ressource value
      */
     public ForestTile(int x, int y, int c, int v) {
         super(x, y, c, v);

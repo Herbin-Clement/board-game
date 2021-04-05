@@ -8,6 +8,8 @@ public class PlainTile extends CommonTile {
      * Create a plain tile 
      * @param x x coordinate
      * @param y y coordinate
+     * @param c c capacity
+     * @param v v ressource value
      */
     public PlainTile(int x, int y, int c, int v) {
         super(x, y, c, v);

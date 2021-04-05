@@ -23,10 +23,12 @@ public class Game {
      * Play a game 
      */
     public void play(){
-        int i =0;
+        int i =1;
         boolean stop= false;
         while(i<this.round && ! stop){
+            System.out.println("it's round " + i + "!");
             for(Player player : this.players){
+                System.out.println("it's " + player.getName() + "'s turn");
                 player.action(this.board);
                 player.recolt();
                 player.feed();
@@ -38,7 +40,10 @@ public class Game {
         }
         Player maxPlayer = this.players.get(0);
         for(Player player : this.players){
-            if(player.score() > maxPlayer.score()) maxPlayer = player;
+            int score = player.score();
+            System.out.println("the score of " + player.getName() + " is " + score);
+            if( score > maxPlayer.score()) maxPlayer = player;
         }
+        System.out.println("the winner is " + maxPlayer.getName());
     }
 }

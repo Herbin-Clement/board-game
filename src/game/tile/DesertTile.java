@@ -6,6 +6,8 @@ public class DesertTile extends CommonTile {
      * Create a Desert Tile
      * @param x  x coordinate
      * @param y y coordiate
+     * @param c c capacity
+     * @param v v ressource value
      */
     public DesertTile(int x, int y, int c, int v) {
         super(x, y, c, v);
@@ -22,5 +24,14 @@ public class DesertTile extends CommonTile {
         else{
             return 3;
         }
+    }
+
+    public boolean equals(CommonTile common){
+        if (common instanceof DesertTile){
+            DesertTile that = (DesertTile) common;
+            return that.getXCoordinate() == this.getXCoordinate() && that.getYCoordinate() == this.getYCoordinate();
+        }
+
+        else return false;
     }
 }
