@@ -20,10 +20,9 @@ public class Army extends Character{
      */
     public Army(CommonTile tile, int number, Player o) throws CapacityArmyException{
         super(tile, o);
-        if(number > 5){
+        if(number > 5) {
             throw new CapacityArmyException("An Army can contain until 5 soldiers");
-        }
-        else{
+        } else {
             this.number = number;
         }
         this.foodRequire = this.position.getFoodRequire();

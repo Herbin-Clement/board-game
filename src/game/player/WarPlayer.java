@@ -20,7 +20,7 @@ public class WarPlayer extends Player{
     public WarPlayer(String n){
         super(n, 0, 35);
         this.food = 10;
-        this.theCharacters = new ArrayList<Army>(35);
+        this.theCharacters = new ArrayList<>(35);
     }
 
     /**
@@ -63,10 +63,11 @@ public class WarPlayer extends Player{
         CommonTile t;
         boolean emptyTile = false;
         while(!emptyTile){ // choix d'une CommonTile vide
-            try{
+            try {
                 t = this.chooseEmptyTile(b);
                 emptyTile = true;
-            }catch(TileNotEmptyException e){
+            } catch (TileNotEmptyException e) {
+
             }
         }
 
@@ -74,17 +75,18 @@ public class WarPlayer extends Player{
         List<CommonTile> liste = b.getAdjacentCommonTile(t);
         while(!setp){ // choix de la taille de l'armée possible pour la tuile
                  
-            try{
+            try {
                 int number = (int) (Math.random()*4 +1);
                 army = new Army(t, number, this);
             
                 army.setPosition(t);
                 t.setCharacter(army);
                 setp = true;
-            }catch(TileCapacityException e){
+            } catch (TileCapacityException e) {
+
             }  
         }
-        this.theCharacters.add(army); //ajout de l'armée dans la liste theCharatcter
+        this.theCharacters.add((Character) army); //ajout de l'armée dans la liste theCharatcter
         for(CommonTile c : liste){
             army.meet(c);
         }
