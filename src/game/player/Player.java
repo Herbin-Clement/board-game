@@ -25,7 +25,7 @@ public abstract class Player {
      */
     protected Player(String n, int g, int c) {
         this.name = n;
-        this. gold = 0;
+        this. gold = g;
         this.nbCharacter = c;
     }
 

@@ -21,6 +21,10 @@ public class AgricolPlayer extends Player{
         this.theCharacters = new ArrayList<>(10);
         this.ressource = 0;
     }
+
+    public int getRessource(){
+        return this.ressource;
+    }
     /**
      * @param b board of this game
      */
@@ -45,7 +49,7 @@ public class AgricolPlayer extends Player{
      */
     public void feed(){
         for(Character w : this.theCharacters){
-            if(this.gold - ((Worker) w).getGoldRequire()< 0){
+            if(this.gold - ((Worker) w).getGoldRequire()<0){
                 this.theCharacters.remove(w);
                 this.gold = 0; // pour que la quantité d'or du joueur ne soit < 0 
             }
