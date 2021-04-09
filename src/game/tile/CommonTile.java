@@ -36,9 +36,10 @@ public abstract class CommonTile extends Tile {
      * Set the character which on the tile
      * @param c a character
      */
-    public void setCharacter(Character c){  
+    public void setCharacter(Character c) {  
         this.character = c;
     }
+
     /**
      * Return if the tile is occupied by a Character
      * @return if the tile is occupied

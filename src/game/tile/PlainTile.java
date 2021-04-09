@@ -1,6 +1,6 @@
 package game.tile;
 
-import game.character.Army;
+import game.character.*;
 
 public class PlainTile extends CommonTile {
 
@@ -22,9 +22,10 @@ public class PlainTile extends CommonTile {
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();
             return army.getNumber();
-        }
-        else{
+        } else if (this.getCharacter() instanceof Worker){
             return 1;
+        } else {
+            return 0;
         }
     }
 }

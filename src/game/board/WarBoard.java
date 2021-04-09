@@ -22,7 +22,7 @@ public class WarBoard extends Board{
 
         int tab[][] = this.cutArray(width, height, tempTab);
 
-        int[] values = this.getValues(tab, nbValues);
+        int[] values = this.getValues(width, height, tab, nbValues);
         
         Tile[][] board = this.getTileBoard(tab, values, nbValues, width, height);
         if (board == null) {
@@ -69,7 +69,7 @@ public class WarBoard extends Board{
             }
         }
         this.board = board;
-        this.displayBoard();
+        // this.displayBoard();
         // Test if all CommonTile have a neighbor, if not, replace the CommonTile for a OceanTile
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.height; y++) {
@@ -83,9 +83,9 @@ public class WarBoard extends Board{
             }
         }
         int total = other + ocean;
-        System.out.println(String.format("total : %s", total));
-        System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
-        System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
+        // System.out.println(String.format("total : %s", total));
+        // System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
+        // System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
         // if the % of OceanTile is greater than 75%, return null and call initBoard()
         if (ocean * 100 / total > 75) {
             return null;

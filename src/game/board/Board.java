@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public abstract class Board {
-    protected final int width;
-    protected final int height;
+    protected int width;
+    protected int height;
     protected int capacity;
     protected int currentTilesUse;
     protected Tile[][] board;
@@ -179,9 +179,9 @@ public abstract class Board {
      * @return 2 dimensional array with the right proportions
      */
     protected int[][] cutArray(int w, int h, int[][] tempTab) {
-        int tab[][] = new int[width][height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
+        int tab[][] = new int[w][h];
+        for (int i = 0; i < w; i++) {
+            for (int j = 0; j < h; j++) {
                 tab[i][j] = (int) Math.round(tempTab[i][j]);      
             }
         }
@@ -194,11 +194,11 @@ public abstract class Board {
      * @param nbValues the number of values
      * @return the array with values
      */
-    protected int[] getValues(int[][] tab, int nbValues) {
+    protected int[] getValues(int w, int h, int[][] tab, int nbValues) {
         int[] values = new int[nbValues];
         int count = 0;
-        for (int k = 0; k < width; k++) {
-            for (int l = 0; l < height; l++) {
+        for (int k = 0; k < w; k++) {
+            for (int l = 0; l < h; l++) {
                 values[count] = tab[k][l];
                 count += 1;
             }
@@ -260,7 +260,7 @@ public abstract class Board {
 
     public static void main(String[] args) {
         int w = 30;
-        int h = 12;
+        int h = 30;
         AgricolBoard board = new AgricolBoard(w, h);
         board.displayBoard();
     }

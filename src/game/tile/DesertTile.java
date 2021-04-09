@@ -20,8 +20,7 @@ public class DesertTile extends CommonTile {
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();
             return army.getNumber()*2;
-        }
-        else{
+        } else {
             return 3;
         }
     }

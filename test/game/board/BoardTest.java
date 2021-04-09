@@ -14,11 +14,10 @@ import game.tile.*;
 
 import org.junit.Before;
 
-public class AgricolBoardTest {
+public class BoardTest {
     private int w;
     private int h;
     private AgricolBoard board;
-
 
     @Before
     public void init() {
@@ -34,7 +33,7 @@ public class AgricolBoardTest {
 
     @Test
     public void canGetWidth() {
-        assertEquals(this.board.getWidth(), 20);
+        assertEquals(this.board.getWidth(), 18);
     }
 
     @Test
@@ -45,8 +44,8 @@ public class AgricolBoardTest {
     @Test 
     public void noCommonTileAlone() {
         List<CommonTile> tiles;
-        for (int i = 0; i < this.w; i++) {
-            for (int j = 0; j < this.h; j++) {
+        for (int i = 0; i < this.h; i++) {
+            for (int j = 0; j < this.w; j++) {
                 if (this.board.getTile(i, j) instanceof CommonTile) {
                     tiles = this.board.getAdjacentCommonTile((CommonTile) this.board.getTile(i, j));
                     assertTrue(tiles.size() > 0);
@@ -59,8 +58,8 @@ public class AgricolBoardTest {
     public void moreThanTwoThirdsOceanTile() {
         int nbTile = this.w * this.h;
         int nbCommonTile = 0;
-        for (int i = 0; i < this.w; i++) {
-            for (int j = 0; j < this.h; j++) {
+        for (int i = 0; i < this.h; i++) {
+            for (int j = 0; j < this.w; j++) {
                 if (this.board.getTile(i, j) instanceof CommonTile) {
                     nbCommonTile++;
                 }
@@ -68,7 +67,22 @@ public class AgricolBoardTest {
         }
         assertTrue(67 < 100 * (nbTile - nbCommonTile) / nbTile );
     }
+
+    @Test
+    public void getTheGoodWidthForDiamondSquareAlgorithm() {
+        assertEquals(this.board.getWidthDiamondSquare(this.h, this.w), 33);
+    }
+
+    @Test 
+    public void canGetValuesOf2DimensionnalArray() {
+        int tab[][] = {{1, 2}, {3, 4}};
+        int values[] = this.board.getValues(2, 2,tab, 4);
+        int values2[] = {1, 2, 3, 4};
+        assertEquals(values[i], values2[i]);
+    }
+
+
     public static junit.framework.Test suite() {
-        return new junit.framework.JUnit4TestAdapter(game.board.AgricolBoardTest.class);
+        return new junit.framework.JUnit4TestAdapter(game.board.BoardTest.class);
    } 
 }
