@@ -14,7 +14,7 @@ import game.tile.*;
 
 import org.junit.Before;
 
-public class AgricolBoardTest {
+public class BoardTest {
     private int w;
     private int h;
     private AgricolBoard board;
@@ -67,7 +67,22 @@ public class AgricolBoardTest {
         }
         assertTrue(67 < 100 * (nbTile - nbCommonTile) / nbTile );
     }
+
+    @Test
+    public void getTheGoodWidthForDiamondSquareAlgorithm() {
+        assertEquals(this.board.getWidthDiamondSquare(this.h, this.w), 33);
+    }
+
+    @Test 
+    public void canGetValuesOf2DimensionnalArray() {
+        int tab[][] = {{1, 2}, {3, 4}};
+        int values[] = this.board.getValues(2, 2,tab, 4);
+        int values2[] = {1, 2, 3, 4};
+        assertEquals(values[i], values2[i]);
+    }
+
+
     public static junit.framework.Test suite() {
-        return new junit.framework.JUnit4TestAdapter(game.board.AgricolBoardTest.class);
+        return new junit.framework.JUnit4TestAdapter(game.board.BoardTest.class);
    } 
 }

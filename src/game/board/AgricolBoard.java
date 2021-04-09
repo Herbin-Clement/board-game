@@ -22,7 +22,7 @@ public class AgricolBoard extends Board{
         // Cut the 2 dimensionnal array to get a tab[width][height]
         int tab[][] = this.cutArray(width, height, tempTab);
         // Get the values of tab in a sorted array
-        int[] values = this.getValues(tab, nbValues);
+        int[] values = this.getValues(width, height, tab, nbValues);
         // Change the int values of tab[][] for Tile
         Tile[][] board = this.getTileBoard(tab, values, nbValues, width, height);
         // if this.getTileBoard(...) return null, we cann a new this.initBoard() to get a better Board.
@@ -72,8 +72,8 @@ public class AgricolBoard extends Board{
         this.board = board;
         // this.displayBoard();
         // Test if all CommonTile have a neighbor, if not, replace the CommonTile for a OceanTile
-        for (int x = 0; x < this.width; x++) {
-            for (int y = 0; y < this.height; y++) {
+        for (int x = 0; x < this.getWidth(); x++) {
+            for (int y = 0; y < this.getHeight(); y++) {
                 if (!(board[x][y] instanceof OceanTile)) {
                     if (!this.haveNeighbor(board, x, y)) {
                         board[x][y] = new OceanTile(x, y);
@@ -84,9 +84,9 @@ public class AgricolBoard extends Board{
             }
         }
         int total = other + ocean;
-        System.out.println(String.format("total : %s", total));
-        System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
-        System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
+        // System.out.println(String.format("total : %s", total));
+        // System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
+        // System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
         // if the % of OceanTile is greater than 75%, return null and call initBoard()
         if (ocean * 100 / total > 75) {
             return null;
