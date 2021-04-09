@@ -14,10 +14,10 @@ import game.tile.*;
 
 import org.junit.Before;
 
-public class AgricolBoard {
+public class AgricolBoardTest {
     private int w;
     private int h;
-    private WarBoard board;
+    private AgricolBoard board;
 
 
     @Before
@@ -69,6 +69,6 @@ public class AgricolBoard {
         assertTrue(67 < 100 * (nbTile - nbCommonTile) / nbTile );
     }
     public static junit.framework.Test suite() {
-        return new junit.framework.JUnit4TestAdapter(game.board.AgricolBoard.class);
+        return new junit.framework.JUnit4TestAdapter(game.board.AgricolBoardTest.class);
    } 
 }
