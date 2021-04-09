@@ -65,13 +65,14 @@ Nous avons du remodéliser les tuiles car cela ne corespondait pas pour notre pr
 Nous avons affiné le travail de la semaine précèdent, quelques modifications on été apporté. En parralèlles nous avons modéliser les joueurs et ecrit le début de ces classes.
 
 ## Semaine 6
-Nous avons continué l'écriture des classes Player, WarPlayer et AgricolPlayer, notamment sur la modélisation des différentes actions possibles. En parrallèles nous avons restructurer les plateaux ( décompositon de la l'initialisation en plusieurs méthodes). 
+Nous avons continué l'écriture des classes Player, WarPlayer et AgricolPlayer, notamment sur la modélisation des différentes actions possibles. En parrallèles nous avons restructurer les plateaux ( décompositon de la l'initialisation en plusieurs méthodes). Génération du plateau à l'aide
+d'un algo de champ de hauteur.
 
 ## Semaine 7
 Nous avons la  commencé compilation des différents package ce qui nous as permis de corrigé des erreurs.
 
 ## Semaine 8
-Création des tests Army, Worker et WarPlayer. Nous avons aussi reussi a compiler toutes nos classes.
+Création des tests Army, Worker, WarPlayer, Tile et Board. Nous avons aussi reussi a compiler toutes nos classes.
 
 ## Semaine 9
 
