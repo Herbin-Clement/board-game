@@ -1,25 +1,25 @@
-REP =-d /classes
+REP =-d ../classes
 FILE =*.java
 all: board character exception player tile game
 
 # Compilation des différents package
 board: 
-	javac src/game/board/$(FILE) $(REP)
+	javac game/board/$(FILE) $(REP)
 
 character: 
-	javac src/game/character/$(FILE) $(REP)
+	javac game/character/$(FILE) $(REP)
 
 exception:
-	javac src/game/exception/$(FILE) $(REP)
+	javac game/exception/$(FILE) $(REP)
 
 player:
-	javac src/game/player/$(FILE) $(REP)
+	javac game/player/$(FILE) $(REP)
 
 tile:
-	javac src/game/tile/$(FILE) $(REP)
+	javac game/tile/$(FILE) $(REP)
 
 game:
-	javac src/game/$(FILE) $(REP)
+	javac game/$(FILE) $(REP)
 
 # Compilation des différents test
 
