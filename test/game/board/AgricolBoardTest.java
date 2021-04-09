@@ -14,11 +14,10 @@ import game.tile.*;
 
 import org.junit.Before;
 
-public class AgricolBoard {
+public class AgricolBoardTest {
     private int w;
     private int h;
-    private WarBoard board;
-
+    private AgricolBoard board;
 
     @Before
     public void init() {
@@ -34,7 +33,7 @@ public class AgricolBoard {
 
     @Test
     public void canGetWidth() {
-        assertEquals(this.board.getWidth(), 20);
+        assertEquals(this.board.getWidth(), 18);
     }
 
     @Test
@@ -45,8 +44,8 @@ public class AgricolBoard {
     @Test 
     public void noCommonTileAlone() {
         List<CommonTile> tiles;
-        for (int i = 0; i < this.w; i++) {
-            for (int j = 0; j < this.h; j++) {
+        for (int i = 0; i < this.h; i++) {
+            for (int j = 0; j < this.w; j++) {
                 if (this.board.getTile(i, j) instanceof CommonTile) {
                     tiles = this.board.getAdjacentCommonTile((CommonTile) this.board.getTile(i, j));
                     assertTrue(tiles.size() > 0);
@@ -59,8 +58,8 @@ public class AgricolBoard {
     public void moreThanTwoThirdsOceanTile() {
         int nbTile = this.w * this.h;
         int nbCommonTile = 0;
-        for (int i = 0; i < this.w; i++) {
-            for (int j = 0; j < this.h; j++) {
+        for (int i = 0; i < this.h; i++) {
+            for (int j = 0; j < this.w; j++) {
                 if (this.board.getTile(i, j) instanceof CommonTile) {
                     nbCommonTile++;
                 }
@@ -69,6 +68,6 @@ public class AgricolBoard {
         assertTrue(67 < 100 * (nbTile - nbCommonTile) / nbTile );
     }
     public static junit.framework.Test suite() {
-        return new junit.framework.JUnit4TestAdapter(game.board.AgricolBoard.class);
+        return new junit.framework.JUnit4TestAdapter(game.board.AgricolBoardTest.class);
    } 
 }
