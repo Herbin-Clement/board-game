@@ -3,6 +3,7 @@ package game.character;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.Before;
 
 import game.player.AgricolPlayer;
 import game.tile.*;
@@ -29,10 +30,13 @@ public class WorkerTest {
         this.desert = new DesertTile(2, 1, 1, 5);
         this.plain = new PlainTile(2, 2, 1, 2);
 
-        this.workerforest = new Worker(this.forest, 5, this.player1);
-        this.workermountain = new Worker(this.mountain, 2, this.player2);
-        this.workerdesert = new Worker(this.desert, 1, this.player2);
-        this.workerplain = new Worker(this.plain, 5, this.player1);
+        this.player1 = new AgricolPlayer("Clément");
+        this.player2 = new AgricolPlayer("Léa");
+
+        this.workerforest = new Worker(this.forest, this.player1);
+        this.workermountain = new Worker(this.mountain, this.player2);
+        this.workerdesert = new Worker(this.desert, this.player2);
+        this.workerplain = new Worker(this.plain, this.player1);
 
        
     }
@@ -40,29 +44,29 @@ public class WorkerTest {
 
     @Test 
     public void correctGoldRequireTest(){
-        assertEquals(this.workerforest, 2);
-        assertEquals(this.workermountain, 8);
-        assertEquals(this.workerdesert, 5);
-        assertEquals(this.workerplain, 2);
+        assertEquals(this.workerforest.getGoldRequire(), 1);
+        assertEquals(this.workermountain.getGoldRequire(), 5);
+        assertEquals(this.workerdesert.getGoldRequire(), 3);
+        assertEquals(this.workerplain.getGoldRequire(), 1);
     }
 
     @Test
     public void earnGoldTest(){
         //initial quantity of gold
-        assertEquals(this.workerforest,0);       
-        assertEquals(this.workermountain, 0);
-        assertEquals(this.workerdesert,0);
-        assertEquals(this.workerplain,0);
+        assertEquals(this.workerforest.getGold(),0);       
+        assertEquals(this.workermountain.getGold(), 0);
+        assertEquals(this.workerdesert.getGold(),0);
+        assertEquals(this.workerplain.getGold(),0);
         // add gold
-        this.workerforest.earnGold();   
-        this.workermountain.earnGold();
-        this.workerdesert.earnGold();
-        this.workerplain.earnGold();
+        this.workerforest.earnGold(0);   
+        this.workermountain.earnGold(0);
+        this.workerdesert.earnGold(0);
+        this.workerplain.earnGold(0);
         // check if the gold is added 
-        assertEquals(this.workerforest.getGold(), 2);
-        assertEquals(this.workermountain..getGold(), 8);
-        assertEquals(this.workerdesert.getGold(), 5);
-        assertEquals(this.workerplain.getGold(), 2);
+        assertEquals(this.workerforest.getGold(), 1);
+        assertEquals(this.workermountain.getGold(), 5);
+        assertEquals(this.workerdesert.getGold(), 3);
+        assertEquals(this.workerplain.getGold(), 1);
     }
 
 
