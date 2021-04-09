@@ -19,7 +19,6 @@ public class AgricolBoardTest {
     private int h;
     private AgricolBoard board;
 
-
     @Before
     public void init() {
         this.w = 18;
@@ -34,7 +33,7 @@ public class AgricolBoardTest {
 
     @Test
     public void canGetWidth() {
-        assertEquals(this.board.getWidth(), 20);
+        assertEquals(this.board.getWidth(), 18);
     }
 
     @Test
@@ -45,8 +44,8 @@ public class AgricolBoardTest {
     @Test 
     public void noCommonTileAlone() {
         List<CommonTile> tiles;
-        for (int i = 0; i < this.w; i++) {
-            for (int j = 0; j < this.h; j++) {
+        for (int i = 0; i < this.h; i++) {
+            for (int j = 0; j < this.w; j++) {
                 if (this.board.getTile(i, j) instanceof CommonTile) {
                     tiles = this.board.getAdjacentCommonTile((CommonTile) this.board.getTile(i, j));
                     assertTrue(tiles.size() > 0);
@@ -59,8 +58,8 @@ public class AgricolBoardTest {
     public void moreThanTwoThirdsOceanTile() {
         int nbTile = this.w * this.h;
         int nbCommonTile = 0;
-        for (int i = 0; i < this.w; i++) {
-            for (int j = 0; j < this.h; j++) {
+        for (int i = 0; i < this.h; i++) {
+            for (int j = 0; j < this.w; j++) {
                 if (this.board.getTile(i, j) instanceof CommonTile) {
                     nbCommonTile++;
                 }

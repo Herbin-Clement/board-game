@@ -69,7 +69,7 @@ public class WarBoard extends Board{
             }
         }
         this.board = board;
-        this.displayBoard();
+        // this.displayBoard();
         // Test if all CommonTile have a neighbor, if not, replace the CommonTile for a OceanTile
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.height; y++) {
