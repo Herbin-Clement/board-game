@@ -39,9 +39,7 @@ public abstract class Board {
     public void addOrRemoveCurrentTilesUse(int i) {
         this.currentTilesUse += i;
     }
-
-
-
+    
     /**
      * Display the board
      */
@@ -163,7 +161,9 @@ public abstract class Board {
                         s = s + tempTab[x][y + id];
                         n = n + 1;
                     }
-                    tempTab[x][y] = s / n + this.randomNumber(-id, id);
+                    if (n != 0) {
+                        tempTab[x][y] = s / n + this.randomNumber(-id, id);
+                    }
                 }
             }
             i = id;
@@ -182,9 +182,7 @@ public abstract class Board {
         int tab[][] = new int[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (i < width && j < height) {
-                    tab[i][j] = (int) Math.round(tempTab[i][j]);      
-                }
+                tab[i][j] = (int) Math.round(tempTab[i][j]);      
             }
         }
         return tab;
@@ -240,7 +238,7 @@ public abstract class Board {
         return false;
     }
 
-    public List<CommonTile> getAdjacentCommonTile( CommonTile cTile) {
+    public List<CommonTile> getAdjacentCommonTile(CommonTile cTile) {
         int x = cTile.getXCoordinate();
         int y = cTile.getYCoordinate();
         List<CommonTile> tiles = new ArrayList<CommonTile>(4);
@@ -266,5 +264,4 @@ public abstract class Board {
         AgricolBoard board = new AgricolBoard(w, h);
         board.displayBoard();
     }
-
 } 

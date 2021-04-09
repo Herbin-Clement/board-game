@@ -61,9 +61,9 @@ public class AgricolPlayer extends Player{
      */
     public void recolt(){
     	for(Character w : this.theCharacters){
-            if(((Worker) w).haveHarvest()){
-                this.ressource += w.getPosition().getRessourceValue();
-            }
+            //if(((Worker) w).haveHarvest()){
+            this.ressource += w.getPosition().getRessourceValue();
+            //}
         }
     }
 

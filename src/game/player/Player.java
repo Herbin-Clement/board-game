@@ -8,7 +8,7 @@ import game.character.Character;
 
 import game.exception.*;
 /**
- * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
  * 
  */
 public abstract class Player {

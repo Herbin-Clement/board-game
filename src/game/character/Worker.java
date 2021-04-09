@@ -15,22 +15,18 @@ public class Worker extends Character {
      */
     public Worker(CommonTile tile, Player o) {
         super(tile, o);
-        this.haveHarvest = false; 
+        //this.haveHarvest = false; 
         this.goldRequire = this.position.getFoodRequire();
     }
-    /**
-     * Return if the Worker have recolt ressources 
-     * @return True iff the Worker have recolt ressources, false if not 
-     */
+    /*
     public boolean haveHarvest() {
         return this.haveHarvest;
     }
-    /**
-     * 
-     */
+    
     public void harvest(){
         this.haveHarvest = true;
     }
+    */
     /**
      * Return the quantity of gold necessary 
      * @return quantity of gold necessary 

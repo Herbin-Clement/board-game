@@ -62,7 +62,7 @@ public class WarPlayer extends Player{
         CommonTile t = null;
         boolean emptyTile = false;
         while(!emptyTile){ // choix d'une CommonTile vide
-            try{
+            try {
                 t = this.chooseEmptyTile(b);
                 emptyTile = true;
             }catch(TileNotEmptyException e){
@@ -74,7 +74,7 @@ public class WarPlayer extends Player{
         List<CommonTile> liste = b.getAdjacentCommonTile(t);
         while(!setp){ // choix de la taille de l'armée possible pour la tuile
                  
-            try{
+            try {
                 int number = (int) (Math.random()*4 +1);
                 army = new Army(t, number, this);
             

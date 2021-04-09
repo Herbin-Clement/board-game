@@ -1,3 +1,5 @@
+all: board character exception player tile game
+
 board: 
 	javac game/board/*.java -d ../classes
 
