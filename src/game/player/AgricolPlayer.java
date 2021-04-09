@@ -18,7 +18,7 @@ public class AgricolPlayer extends Player{
      */
     public AgricolPlayer(String n){
         super(n,15,10);
-        this.theCharacters = new ArrayList<Worker>(10);
+        this.theCharacters = new ArrayList<>(10);
         this.ressource = 0;
     }
     /**

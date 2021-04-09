@@ -1,7 +1,6 @@
 package game.player;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import game.exception.*;
@@ -20,7 +19,7 @@ public class WarPlayer extends Player{
     public WarPlayer(String n){
         super(n, 0, 35);
         this.food = 10;
-        this.theCharacters = new ArrayList<Army>(35);
+        this.theCharacters = new ArrayList<>(35);
     }
 
     /**
@@ -59,14 +58,15 @@ public class WarPlayer extends Player{
      * deploy an army on a tile
      */
     public void deploy(Board b){
-        Army army;
-        CommonTile t;
+        Army army = null;
+        CommonTile t = null;
         boolean emptyTile = false;
         while(!emptyTile){ // choix d'une CommonTile vide
             try{
                 t = this.chooseEmptyTile(b);
                 emptyTile = true;
             }catch(TileNotEmptyException e){
+                System.out.println("la tuile n'est pas vide");
             }
         }
 
@@ -82,9 +82,13 @@ public class WarPlayer extends Player{
                 t.setCharacter(army);
                 setp = true;
             }catch(TileCapacityException e){
+                System.out.println("la tuile ne supporte pas l'armée");
+            } catch (CapacityArmyException e) {
+                
+                System.out.println("L'armée n'a pas la bonne taille");
             }  
         }
-        this.theCharacters.add(army); //ajout de l'armée dans la liste theCharatcter
+        ((List<Character>)this.theCharacters).add( army); //ajout de l'armée dans la liste theCharatcter
         for(CommonTile c : liste){
             army.meet(c);
         }
