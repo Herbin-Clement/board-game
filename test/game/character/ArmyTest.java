@@ -26,7 +26,7 @@ public class ArmyTest {
     private WarPlayer player2;
 
     @Before
-    public void init(){
+    public void init() throws CapacityArmyException{
         this.forest = new ForestTile(1, 1, 5, 1);
         this.mountain = new MountainTile(1, 2, 3, 0);
         this.desert = new DesertTile(2, 1, 5, 0);
@@ -42,12 +42,12 @@ public class ArmyTest {
     }
 
     @Test(expected=CapacityArmyException.class) 
-    public void testCreateArmyCapacityArmyException(){
+    public void testCreateArmyCapacityArmyException() throws CapacityArmyException{
         new Army(this.forest, 6, this.player1);
     }
 
     @Test
-    public void testCreateArmyForAllTiles(){
+    public void testCreateArmyForAllTiles() throws CapacityArmyException{
         Army armyf = new Army(this.forest, 5, this.player1);
         Army armym = new Army(this.mountain, 2, this.player2);
         Army armyd = new Army(this.desert, 1, this.player2);
