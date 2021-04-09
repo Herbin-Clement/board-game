@@ -8,6 +8,8 @@
 
 [Le sujet 2021](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
 
+[Le fichier UML](https://gitlab-etu.fil.univ-lille1.fr/herbin/l2s4-projet-2021/-/blob/master/UML.mdj)
+
 # Livrables
 
 ## Livrable 1
