@@ -24,7 +24,7 @@ Difficultées à trouver comment modéliser les tuiles du plateau car il y a de 
 Tuiles modélisées 
 
 ### Difficultés restant à résoudre
-
+Réussir la modélisation d'un plateau réaliste dans lequel on initialisera les tuiles selon les jeux. 
 
 ## Livrable 3
 
@@ -33,6 +33,7 @@ L'objectif est atteint. Le plateau modélisés dans son ensemble. Nous avons 2 t
 
 
 ### Difficultés restant à résoudre
+Comprendre comment modéliser theCharacters dans les classes Player, WarPlayer et AgricolPlayer car l'héritage sur les listes semble problématique.
 
 ## Livrable 4
 
@@ -68,6 +69,7 @@ Nous avons continué l'écriture des classes Player, WarPlayer et AgricolPlayer,
 Nous avons la  commencé compilation des différents package ce qui nous as permis de corrigé des erreurs.
 
 ## Semaine 8
+Création des tests Army, Worker et WarPlayer. Nous avons aussi reussi a compiler toutes nos classes.
 
 ## Semaine 9
 
