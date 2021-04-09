@@ -11,7 +11,6 @@ import game.exception.TileCapacityException;
  */
 public class Army extends Character{
     private int number;
-    private int foodRequire;
     
     /**
      * Create an Army composed of a given number of warrior
@@ -25,7 +24,6 @@ public class Army extends Character{
         } else {
             this.number = number;
         }
-        this.foodRequire = this.position.getFoodRequire();
     }
     /**
      * Return the number of warriors in the army
@@ -40,16 +38,9 @@ public class Army extends Character{
      * @return the food require
      */
     public int getFoodRequire(){
-        return this.foodRequire;
+        return this.position.getFoodRequire();
     }
 
-
-    /**
-     * Set the the foodRequire depending the land type
-     */
-    public void setFoodRequire(){
-        this.foodRequire = this.position.getFoodRequire();
-    }
     /**
      * Add n warriors to the army
      * @param n the number of warriors added 
@@ -62,14 +53,12 @@ public class Army extends Character{
         else{
             this.number = maxNb;
         }
-        this.setFoodRequire();// recalculer ici pour recalculer moins de fois qu'en le mettant dans Player
     }
     /**
      * Remove half warriors to the army
      */
     public void removeWarrior() {// il faut diviser par 2
         this.number =  this.number/2;
-        this.setFoodRequire();
     }
 
     /**

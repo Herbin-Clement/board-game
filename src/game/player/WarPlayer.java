@@ -44,7 +44,7 @@ public class WarPlayer extends Player{
      */
     public void feed(){
     	for(Character a : this.theCharacters){
-            if (getFood() < ((Army) a).getFoodRequire()){
+            if (this.getFood() < ((Army) a).getFoodRequire()){
                 this.removeCharacter((Army) a);
                 this.gold +=1;
             }
@@ -57,7 +57,7 @@ public class WarPlayer extends Player{
     /**
      * deploy an army on a tile
      */
-    public void deploy(Board b){
+    public void deploy(Board b){//decrementer nb de joueurs
         Army army = null;
         CommonTile t = null;
         boolean emptyTile = false;
@@ -76,6 +76,7 @@ public class WarPlayer extends Player{
                  
             try {
                 int number = (int) (Math.random()*4 +1);
+
                 army = new Army(t, number, this);
             
                 army.setPosition(t);

@@ -53,12 +53,17 @@ public class ArmyTest {
         Army armyd = new Army(this.desert, 1, this.player2);
         Army armyp = new Army(this.plain, 5, this.player1);
         
+        this.forest.setCharacter(armyf);
+        this.mountain.setCharacter(armym);
+        this.desert.setCharacter(armyd);
+        this.plain.setCharacter(armyp);
+
         //getNumber
         assertEquals(armyf.getNumber(), 5);
         assertEquals(armym.getNumber(), 2);
 
-        //getFoodRequire
-        assertEquals(armyf.getFoodRequire(), armyf.getNumber());
+        //getFoodRequire 
+        assertEquals(armyf.getFoodRequire(), armyf.getNumber()); 
         assertEquals(armyd.getFoodRequire(), armyd.getNumber() * 2);
         assertEquals(armym.getFoodRequire(), armym.getNumber());
         assertEquals(armyp.getFoodRequire(), armyp.getNumber());
@@ -86,7 +91,7 @@ public class ArmyTest {
 
         //remove
         this.armyplain.removeWarrior();
-        assertEquals(this.armyplain.getNumber(), 3);
+        assertEquals(this.armyplain.getNumber(), 2); // 5/2 = 2
     }
 
     
