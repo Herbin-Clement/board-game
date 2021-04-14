@@ -16,6 +16,7 @@ public class WarGame extends Game{
 
     public static void main(String[] args) {
         WarBoard warboard = new WarBoard(20, 20);
+        warboard.displayBoard();
         WarPlayer p1 = new WarPlayer("Alexis");
         WarPlayer p2 = new WarPlayer("Lea");
         List<WarPlayer> wp = new ArrayList<WarPlayer>();
