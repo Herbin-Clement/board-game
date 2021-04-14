@@ -27,7 +27,7 @@ public class Game {
         boolean stop= false;
         Player maxPlayer = this.players.get(0);
         while(i<this.round && ! stop){
-            System.out.println("\nit's round " + i + "!");
+            System.out.println("it's round " + i + "!\n");
             for(Player player : this.players){
                 System.out.println("\nit's " + player.getName() + "'s turn");
                 player.action(this.board);
@@ -40,11 +40,11 @@ public class Game {
             maxPlayer = this.computeScore(maxPlayer);
             i++;
         }
-        System.out.println("the winner is " + maxPlayer.getName());
+        System.out.println("\nthe winner is " + maxPlayer.getName());
     }
 
     public Player computeScore(Player maxPlayer) {
-        System.out.println("--------------------------------");
+        System.out.println("\n--------------------------------");
         for(Player player : this.players){
             int score = player.score();
             System.out.println("the score of " + player.getName() + " is " + score);
