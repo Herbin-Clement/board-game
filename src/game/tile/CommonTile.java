@@ -69,6 +69,8 @@ public abstract class CommonTile extends Tile {
      */
     public abstract int getFoodRequire();
 
+    public abstract String toString();
+    
     /**
      * 
      * @return the number of soldier considered by the ennemy  on the tile

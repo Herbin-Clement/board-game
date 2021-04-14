@@ -33,4 +33,8 @@ public class DesertTile extends CommonTile {
 
         else return false;
     }
+
+    public String toString(){
+        return "sand";
+    }
 }

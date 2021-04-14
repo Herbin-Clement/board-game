@@ -28,4 +28,8 @@ public class PlainTile extends CommonTile {
             return 0;
         }
     }
+
+    public String toString(){
+        return "corn";
+    }
 }

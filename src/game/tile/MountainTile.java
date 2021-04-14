@@ -42,4 +42,8 @@ public class MountainTile extends CommonTile {
         
     }
 
+    public String toString(){
+        return "rock";
+    }
+
 }

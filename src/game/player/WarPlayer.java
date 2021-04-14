@@ -2,6 +2,7 @@ package game.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import game.exception.*;
 import game.board.Board;
@@ -34,9 +35,14 @@ public class WarPlayer extends Player{
      * recolte ressources on armies's tiles
      */
     public void recolt(){
+        int food;
+        System.out.println("--------------------------------");
         for(Character a : this.theCharacters){
-            this.food += a.getPosition().getRessourceValue();
+            food = a.getPosition().getRessourceValue();
+            System.out.println("recolt " + food + " of " + a.getPosition().toString());
+            this.food += food;
         }
+        System.out.println("--------------------------------");
     }
 
     /**
@@ -100,12 +106,19 @@ public class WarPlayer extends Player{
      * @param b board of this game
      */
     public void action(Board b){
-        int number = (int) (Math.random()*1);
+        int number;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("0 for doing nothing, 1 for deploy an army.");
+            number = sc.nextInt();
+            System.out.println(String.format("number : %s", number));
+        } while (!(number <= 1 && number >= 0));
         if(number == 1) {
             System.out.println(this.getName() + " deploy an army !");
             this.deploy(b);
+        } else {
+            System.out.println(this.getName() + " decide to do nothing !");
         }
-        System.out.println(this.getName() + " decide to do nothing !");
     }
 
     /**

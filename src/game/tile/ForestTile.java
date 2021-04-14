@@ -28,4 +28,8 @@ public class ForestTile extends CommonTile {
             return 1;
         }
     }
+
+    public String toString(){
+        return "wood";
+    }
 }

@@ -25,10 +25,11 @@ public class Game {
     public void play(){
         int i =1;
         boolean stop= false;
+        Player maxPlayer = this.players.get(0);
         while(i<this.round && ! stop){
-            System.out.println("it's round " + i + "!");
+            System.out.println("\nit's round " + i + "!");
             for(Player player : this.players){
-                System.out.println("it's " + player.getName() + "'s turn");
+                System.out.println("\nit's " + player.getName() + "'s turn");
                 player.action(this.board);
                 player.recolt();
                 player.feed();
@@ -36,14 +37,20 @@ public class Game {
             if (this.board.allIsOccupated()){
                 stop=true;
             }
+            maxPlayer = this.computeScore(maxPlayer);
             i++;
         }
-        Player maxPlayer = this.players.get(0);
+        System.out.println("the winner is " + maxPlayer.getName());
+    }
+
+    public Player computeScore(Player maxPlayer) {
+        System.out.println("--------------------------------");
         for(Player player : this.players){
             int score = player.score();
             System.out.println("the score of " + player.getName() + " is " + score);
             if( score > maxPlayer.score()) maxPlayer = player;
         }
-        System.out.println("the winner is " + maxPlayer.getName());
+        System.out.println("--------------------------------");
+        return maxPlayer;
     }
 }
