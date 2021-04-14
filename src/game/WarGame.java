@@ -13,15 +13,4 @@ public class WarGame extends Game{
         this.board = b;
 
     }
-
-    public static void main(String[] args) {
-        WarBoard warboard = new WarBoard(20, 20);
-        WarPlayer p1 = new WarPlayer("Alexis");
-        WarPlayer p2 = new WarPlayer("Lea");
-        List<WarPlayer> wp = new ArrayList<WarPlayer>();
-        wp.add(p1);
-        wp.add(p2);
-        Game game = new WarGame(wp, warboard);
-        game.play();
-    }
 }
