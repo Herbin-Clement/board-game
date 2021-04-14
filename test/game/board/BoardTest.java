@@ -78,7 +78,7 @@ public class BoardTest {
         int tab[][] = {{1, 2}, {3, 4}};
         int values[] = this.board.getValues(2, 2,tab, 4);
         int values2[] = {1, 2, 3, 4};
-        for (int i = 0; i < values2.length; j++) {
+        for (int i = 0; i < values2.length; i++) {
             assertEquals(values[i], values2[i]);
         }
     }
