@@ -33,14 +33,14 @@ public abstract class Player {
      * Return the name of the player
      * @return the name of the player 
      */
-    public String getName(){
+    public String getName() {
         return this.name;
     }
     /**
      * Return the quantituof gold
      * @return quantity of gold
      */
-    public int getGold(){
+    public int getGold() {
         return this.gold;
     }
 
@@ -48,7 +48,7 @@ public abstract class Player {
      * 
      * @return the numnber of character that the player have
      */
-    public int getNbCharacter(){
+    public int getNbCharacter() {
         return this.nbCharacter;
     }
 
@@ -57,7 +57,7 @@ public abstract class Player {
      * Remove a caracter
      * @param c a character 
      */
-    public void removeCharacter(Character c){
+    public void removeCharacter(Character c) {
         this.theCharacters.remove(c);
     }
 
@@ -75,12 +75,12 @@ public abstract class Player {
             int numberX = (int) (Math.random()*board.getWidth());
             int numberY = (int) (Math.random()*board.getHeight());
             tile = board.getTile(numberX, numberY);
-            if (tile instanceof CommonTile){
+            if (tile instanceof CommonTile) {
                 common = (CommonTile) tile;
                 found = true;
             }
         } while(!found);
-        if(!common.isEmpty()){
+        if(!common.isEmpty()) {
             throw new TileNotEmptyException("the tile is not empty");
         }
         return common;

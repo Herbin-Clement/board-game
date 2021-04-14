@@ -44,6 +44,7 @@ public class WarPlayer extends Player{
      * feed all his armies
      */
     public void feed(){
+        System.out.println(String.format("taille theCharacters : %s", this.theCharacters.size()));
     	for(Character a : this.theCharacters){
             if (this.getFood() < ((Army) a).getFoodRequire()){
                 this.removeCharacter((Army) a);
@@ -58,22 +59,22 @@ public class WarPlayer extends Player{
     /**
      * deploy an army on a tile
      */
-    public void deploy(Board b){//decrementer nb de joueurs
+    public void deploy(Board b) {//decrementer nb de joueurs
         Army army = null;
         CommonTile t = null;
         boolean emptyTile = false;
-        while(!emptyTile){ // choix d'une CommonTile vide
+        while(!emptyTile) { // choix d'une CommonTile vide
             try {
                 t = this.chooseEmptyTile(b);
                 emptyTile = true;
-            }catch(TileNotEmptyException e){
+            } catch(TileNotEmptyException e) {
                 System.out.println("la tuile n'est pas vide");
             }
         }
 
         boolean setp = false;
         List<CommonTile> liste = b.getAdjacentCommonTile(t);
-        while(!setp){ // choix de la taille de l'armée possible pour la tuile
+        while(!setp) { // choix de la taille de l'armée possible pour la tuile
                  
             try {
                 int number = (int) (Math.random()*4 +1);
@@ -83,7 +84,8 @@ public class WarPlayer extends Player{
                 army.setPosition(t);
                 t.setCharacter(army);
                 setp = true;
-            }catch(TileCapacityException e){
+                this.nbCharacter -= number;
+            } catch(TileCapacityException e) {
                 System.out.println("la tuile ne supporte pas l'armée");
             } catch (CapacityArmyException e) {
                 
@@ -100,7 +102,7 @@ public class WarPlayer extends Player{
      * choice of the WarPlayer between deploy an army and do nothing
      * @param b board of this game
      */
-    public void action(Board b){
+    public void action(Board b) {
         int number;
         Scanner sc = new Scanner(System.in);
         do {
@@ -119,10 +121,10 @@ public class WarPlayer extends Player{
     /**
      * @return final score of the WarPlayer
      */
-    public int score(){
+    public int score() {
         int nbOfTerritory = 0;
         int score = 0;
-        for(Character a : this.theCharacters){
+        for(Character a : this.theCharacters) {
             nbOfTerritory ++;
             if( ((Army) a).getPosition() instanceof PlainTile) score += 1;
             else if ( ((Army) a).getPosition() instanceof ForestTile) score += 2;
