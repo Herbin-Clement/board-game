@@ -43,7 +43,7 @@ Comprendre comment modéliser theCharacters dans les classes Player, WarPlayer e
 
 ### Difficultés restant à résoudre
 
-#Modélisation du projet
+# Modélisation du projet
 
 [diagramme UML](image.jpg)
 
