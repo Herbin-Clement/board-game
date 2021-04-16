@@ -43,6 +43,10 @@ Comprendre comment modéliser theCharacters dans les classes Player, WarPlayer e
 
 ### Difficultés restant à résoudre
 
+#Modélisation du projet
+
+[diagramme UML](UML.mdj)
+
 # Journal de bord
 
 ## Semaine 1
