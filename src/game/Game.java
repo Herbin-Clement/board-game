@@ -1,5 +1,6 @@
 package game;
 
+import game.utils.*;
 import java.util.List;
 import game.player.*;
 import game.board.*;
@@ -27,7 +28,9 @@ public class Game {
         boolean stop= false;
         Player maxPlayer = this.players.get(0);
         while(i<this.round && ! stop){
-            System.out.println(String.format("\u001B[43m**** It's round %s ! ****\u001B[40m \n", i));
+            System.out.println(Color.stringWithColor(String.format("It's round %s ! ****", i), Color.bg_blue));
+            System.out.println(Color.stringWithColor(String.format("It's round %s ! ****", i), Color.t_blue));
+            System.out.println(Color.stringWithColor(String.format("It's round %s ! ****", i), Color.bg_cyan, Color.t_lightGreen));
             for(Player player : this.players){
                 System.out.println("\nIt's " + player.getName() + "'s turn");
                 player.action(this.board);

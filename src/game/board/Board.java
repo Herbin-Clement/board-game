@@ -4,6 +4,7 @@ import game.tile.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import game.utils.*;
 
 public abstract class Board {
     protected int width;
@@ -69,15 +70,15 @@ public abstract class Board {
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
                 if (this.board[x][y] instanceof OceanTile) {
-                    line += "\u001B[44m  \u001B[40m";
+                    line += Color.stringWithColor("  ", Color.bg_blue);
                 } else if (this.board[x][y] instanceof MountainTile) {
-                    line += "\u001B[47m  \u001B[40m";
+                    line += Color.stringWithColor("  ", Color.bg_darkGray);
                 } else if (this.board[x][y] instanceof PlainTile) {
-                    line += "\u001B[102m  \u001B[40m";
+                    line += Color.stringWithColor("  ", Color.bg_lightGreen);
                 } else if (this.board[x][y] instanceof DesertTile) {
-                    line += "\u001B[43m  \u001B[40m";
+                    line += Color.stringWithColor("  ", Color.bg_yellow);
                 } else if (this.board[x][y] instanceof ForestTile) {
-                    line += "\u001B[42m  \u001B[40m";
+                    line += Color.stringWithColor("  ", Color.bg_green);
                 }
             }
             System.out.println(line);
