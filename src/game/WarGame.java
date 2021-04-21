@@ -10,6 +10,5 @@ public class WarGame extends Game{
         super(10);
         this.players = wp;
         this.board = b;
-
     }
 }

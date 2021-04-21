@@ -15,7 +15,7 @@ public class WarBoard extends Board{
         int width = this.getWidth();
         int height = this.getHeight();
         int h = this.getWidthDiamondSquare(width, height);
-        System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
+        // System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
 
         int nbValues = width * height;
         int tempTab[][] = this.getArrayWithDiamondSquare(h);

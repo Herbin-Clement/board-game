@@ -1,7 +1,7 @@
 REP =-d ../classes
 FILE =*.java
 
-all: gameboard character exception player tile 
+all: game board character exception player tile 
 
 # Compilation des différents package
 board: 
