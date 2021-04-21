@@ -7,31 +7,6 @@ public class AgricolBoard extends Board{
     public AgricolBoard(int w, int h) {
         super(w,h);
     }
-
-    /**
-     * Initialise the board with the five differents tiles
-     */
-    public void initBoard() {
-        int width = this.getWidth();
-        int height = this.getHeight();
-        int h = this.getWidthDiamondSquare(width, height);
-        // System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
-        int nbValues = width * height;
-        // get an 2 dimensionnal array of int with the diamond square algorithm
-        int tempTab[][] = this.getArrayWithDiamondSquare(h);
-        // Cut the 2 dimensionnal array to get a tab[width][height]
-        int tab[][] = this.cutArray(width, height, tempTab);
-        // Get the values of tab in a sorted array
-        int[] values = this.getValues(width, height, tab, nbValues);
-        // Change the int values of tab[][] for Tile
-        Tile[][] board = this.getTileBoard(tab, values, nbValues, width, height);
-        // if this.getTileBoard(...) return null, we cann a new this.initBoard() to get a better Board.
-        if (board == null) {
-            this.initBoard();
-        } else {
-            this.board = board;
-        }
-    }
  
     /**
      * 
@@ -42,7 +17,7 @@ public class AgricolBoard extends Board{
      * @param h the height of the board
      * @return
      */
-    private Tile[][] getTileBoard(int[][] tab, int[] values, int nbValues, int w, int h) {
+    protected Tile[][] getTileBoard(int[][] tab, int[] values, int nbValues, int w, int h) {
         Tile[][] board = new Tile[w][h];
         int ocean = 0;
         int other = 0;
