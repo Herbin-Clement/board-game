@@ -1,6 +1,5 @@
 package game.player;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -79,9 +78,10 @@ public class WarPlayer extends Player{
     /**
      * deploy an army on a tile
      */
-    public void deploy(Board b) {//decrementer nb de joueurs
+    public void deploy(Board b) {//decrementer nb de joueurs + faire 3 fonctions
         Army army = null;
         CommonTile t = null;
+        int number = 0;
         boolean emptyTile = false;
         while(!emptyTile) { // choix d'une CommonTile vide
             try {
@@ -97,7 +97,7 @@ public class WarPlayer extends Player{
         while(!setp) { // choix de la taille de l'armée possible pour la tuile
                  
             try {
-                int number = (int) (Math.random()*4 +1);
+                number = (int) (Math.random()*4 +1);
 
                 army = new Army(t, number, this);
             
@@ -110,7 +110,8 @@ public class WarPlayer extends Player{
             } catch (CapacityArmyException e) {
                 
                 System.out.println("L'armée n'a pas la bonne taille");
-            }  
+            }
+            this.nbCharacter -= number;  
         }
         ((List<Character>)this.theCharacters).add( army); //ajout de l'armée dans la liste theCharatcter
         for(CommonTile c : liste){

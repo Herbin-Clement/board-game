@@ -28,6 +28,7 @@ public class Game {
         Player maxPlayer = this.players.get(0);
         while(i<this.round && ! stop){
             System.out.println("it's round " + i + "!\n");
+            this.board.displayBoard();
             for(Player player : this.players){
                 System.out.println("\nit's " + player.getName() + "'s turn");
                 player.action(this.board);

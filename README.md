@@ -82,6 +82,7 @@ Création des tests Army, Worker, WarPlayer, Tile et Board. Nous avons aussi reu
 Nous avons continué BoardTest et corrigé les erreurs pour tester le bon fonctionnement du jeu dans Game.
 
 ## Semaine 10
+Nous avons continué l'affichage des messages lors du jeu et la coloration du plateau.
 
 ## Semaine 11
 
