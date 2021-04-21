@@ -1,5 +1,6 @@
 package game.player;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -42,25 +43,33 @@ public class WarPlayer extends Player{
             System.out.println("recolt " + food + " of " + a.getPosition().toString());
             this.food += food;
         }
-        System.out.println("--------------------------------");
+        System.out.println("--------------------------------\n");
     }
 
     /**
      * feed all his armies
      */
     public void feed(){
+        System.out.println("--------------------------------");
         System.out.println(String.format("taille theCharacters : %s", this.theCharacters.size()));
-    	for(Character a : this.theCharacters){
+    	int i = 1;
+        List<Character> copie;
+        copie = List.copyOf(this.theCharacters);
+        System.out.println("taille copy: " + copie.size());
+        for(Character a : copie){
             if (this.getFood() < ((Army) a).getFoodRequire()){
                 System.out.println("Remove");
                 this.removeCharacter((Army) a);
                 this.gold +=1;
+                i ++;
             }
             else{
-                System.out.println("not remove");
+                System.out.println("army " + i + " was not feed. The army died.");
                 this.food -=  ((Army) a).getFoodRequire();
+                i ++;
             }
         }
+        System.out.println("--------------------------------\n");
     }
 
     /**
