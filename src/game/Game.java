@@ -28,9 +28,8 @@ public class Game {
         boolean stop= false;
         Player maxPlayer = this.players.get(0);
         while(i<this.round && ! stop){
-            System.out.println(Color.stringWithColor(String.format("It's round %s ! ****", i), Color.bg_blue));
-            System.out.println(Color.stringWithColor(String.format("It's round %s ! ****", i), Color.t_blue));
-            System.out.println(Color.stringWithColor(String.format("It's round %s ! ****", i), Color.bg_cyan, Color.t_lightGreen));
+            System.out.println("it's round " + i + "!\n");
+            this.board.displayBoard();
             for(Player player : this.players){
                 System.out.println("\nIt's " + player.getName() + "'s turn");
                 player.action(this.board);
