@@ -45,7 +45,7 @@ Comprendre comment modéliser theCharacters dans les classes Player, WarPlayer e
 
 # Modélisation du projet
 
-[diagramme UML](image.jpg)
+[diagramme UML](image.png)
 
 # Journal de bord
 

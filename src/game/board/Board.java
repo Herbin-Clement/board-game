@@ -23,7 +23,28 @@ public abstract class Board {
     /**
      * Create a board
      */
-    public abstract void initBoard();
+    public void initBoard() {
+        int width = this.getWidth();
+        int height = this.getHeight();
+        int h = this.getWidthDiamondSquare(width, height);
+        int nbValues = width * height;
+        // get an 2 dimensionnal array of int with the diamond square algorithm
+        int tempTab[][] = this.getArrayWithDiamondSquare(h);
+        // Cut the 2 dimensionnal array to get a tab[width][height]
+        int tab[][] = this.cutArray(width, height, tempTab);
+        // Get the values of tab in a sorted array
+        int[] values = this.getValues(width, height, tab, nbValues);
+        // Change the int values of tab[][] for Tile
+        Tile[][] board = this.getTileBoard(tab, values, nbValues, width, height);
+        // if this.getTileBoard(...) return null, we cann a new this.initBoard() to get a better Board.
+        if (board == null) {
+            this.initBoard();
+        } else {
+            this.board = board;
+        }
+    }
+
+    protected abstract Tile[][] getTileBoard(int[][] tab, int[] values, int nbValues, int w, int h);
 
     /**
      * return true if all common tile are occupated
