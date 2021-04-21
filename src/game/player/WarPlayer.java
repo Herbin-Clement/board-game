@@ -1,6 +1,5 @@
 package game.player;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -37,7 +36,7 @@ public class WarPlayer extends Player{
      */
     public void recolt(){
         int food;
-        int i = 0;
+        int i = 1;
         System.out.println("--------------------------------");
         for(Character a : this.theCharacters){
             food = a.getPosition().getRessourceValue();
@@ -53,11 +52,11 @@ public class WarPlayer extends Player{
      */
     public void feed(){
         System.out.println("--------------------------------");
-        System.out.println(String.format("taille theCharacters : %s", this.theCharacters.size()));
     	int i = 1;
         List<Character> copie;
         copie = List.copyOf(this.theCharacters);
-        System.out.println("taille copy: " + copie.size());
+        // System.out.println(String.format("taille theCharacters : %s", this.theCharacters.size()));
+        // System.out.println("taille copy: " + copie.size());
         for(Character a : copie){
             if (this.getFood() < ((Army) a).getFoodRequire()){
                 System.out.println(String.format("army %s was not feed. army died.", i));
@@ -71,9 +70,8 @@ public class WarPlayer extends Player{
                 i++;
             }
         }
-        System.out.println(String.format("gold : %s", this.gold));
-        System.out.println(String.format("food : %s", this.food));
         System.out.println("--------------------------------\n");
+        System.out.println(String.format("gold : %s, food : %s", this.gold, this.food));
     }
 
     /**
@@ -106,9 +104,8 @@ public class WarPlayer extends Player{
                 setp = true;
                 this.nbCharacter -= number;
             } catch(TileCapacityException e) {
-                System.out.println("la tuile ne supporte pas l'armée");
+                System.out.println("La tuile ne supporte pas l'armée");
             } catch (CapacityArmyException e) {
-                
                 System.out.println("L'armée n'a pas la bonne taille");
             }  
         }
@@ -126,9 +123,8 @@ public class WarPlayer extends Player{
         int number;
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("0 for doing nothing, 1 for deploy an army.");
+            System.out.print("0 for doing nothing, 1 for deploy an army. Your choice : ");
             number = sc.nextInt();
-            System.out.println(String.format("number : %s", number));
         } while (!(number <= 1 && number >= 0));
         if(number == 1) {
             System.out.println(this.getName() + " deploy an army !");
