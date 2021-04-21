@@ -3,6 +3,17 @@ FILE =*.java
 
 all: boardTest characterTest playerTest tileTest gameTest
 
+#Compilation des packages
+
+cls:
+	make -C  src
+
+doc:
+	make -C src doc
+
+
+
+#Compilation des tests
 boardTest:
 	$(TEST) test/game/board/$(FILE)
 
@@ -18,3 +29,9 @@ tileTest:
 gameTest:
 	$(TEST) test/game/game/$(FILE)
 
+
+# Utile
+clean :
+	rm -f -r classes docs
+
+.PHONY: clean doc cls

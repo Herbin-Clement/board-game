@@ -1,7 +1,12 @@
 REP =-d ../classes
 FILE =*.java
-
+ 
 all: game board character exception player tile 
+
+# Génération de la documentation
+
+doc:
+	javadoc -d ../docs -subpackages  game
 
 # Compilation des différents package
 board: 
@@ -25,4 +30,4 @@ game:
 	javac game/WarGame.java $(REP)
 	
 
-
+.PHONY: doc all

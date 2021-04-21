@@ -30,7 +30,7 @@ public class Game {
             System.out.println("it's round " + i + "!\n");
             this.board.displayBoard();
             for(Player player : this.players){
-                System.out.println("\nit's " + player.getName() + "'s turn");
+                System.out.println("\nIt's " + player.getName() + "'s turn");
                 player.action(this.board);
                 player.recolt();
                 player.feed();
@@ -41,17 +41,17 @@ public class Game {
             maxPlayer = this.computeScore(maxPlayer);
             i++;
         }
-        System.out.println("\nthe winner is " + maxPlayer.getName());
+        System.out.println("\nThe winner is " + maxPlayer.getName());
     }
 
     public Player computeScore(Player maxPlayer) {
         System.out.println("\n--------------------------------");
         for(Player player : this.players){
             int score = player.score();
-            System.out.println("the score of " + player.getName() + " is " + score);
+            System.out.println("The score of " + player.getName() + " is " + score);
             if( score > maxPlayer.score()) maxPlayer = player;
         }
-        System.out.println("--------------------------------");
+        System.out.println("-------------------------------- \n");
         return maxPlayer;
     }
 }

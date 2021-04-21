@@ -69,15 +69,15 @@ public abstract class Board {
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
                 if (this.board[x][y] instanceof OceanTile) {
-                    line += " .";
+                    line += "\u001B[44m  \u001B[40m";
                 } else if (this.board[x][y] instanceof MountainTile) {
-                    line += " M";
+                    line += "\u001B[47m  \u001B[40m";
                 } else if (this.board[x][y] instanceof PlainTile) {
-                    line += " P";
+                    line += "\u001B[102m  \u001B[40m";
                 } else if (this.board[x][y] instanceof DesertTile) {
-                    line += " D";
+                    line += "\u001B[43m  \u001B[40m";
                 } else if (this.board[x][y] instanceof ForestTile) {
-                    line += " F";
+                    line += "\u001B[42m  \u001B[40m";
                 }
             }
             System.out.println(line);
