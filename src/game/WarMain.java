@@ -14,7 +14,6 @@ public class WarMain{
         List<WarPlayer> wp = new ArrayList<WarPlayer>();
         wp.add(p1);
         // wp.add(p2);
-        warboard.displayBoard();
         Game game = new WarGame(wp, warboard);
         game.play();
     }

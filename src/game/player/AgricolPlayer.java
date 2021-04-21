@@ -30,15 +30,8 @@ public class AgricolPlayer extends Player{
      */
     public void deploy(Board b){
         CommonTile t = null;
-        boolean emptyTile = false;
-        while(!emptyTile){
-            try{
-                t = this.chooseEmptyTile(b);
-                emptyTile = true;
-            }catch(TileNotEmptyException e){
-            }
-        }
         
+        t = this.chooseEmptyTile(b);
         Worker worker = new Worker(t, this);
         t.setCharacter(worker);
         

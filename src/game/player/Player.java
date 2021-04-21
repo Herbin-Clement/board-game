@@ -67,7 +67,7 @@ public abstract class Player {
      */
     public abstract void deploy(Board b);
     
-    public CommonTile chooseEmptyTile(Board board) throws TileNotEmptyException {
+    public CommonTile chooseEmptyTile(Board board) {
         boolean found = false;
         Tile tile;
         CommonTile common = null;
@@ -81,7 +81,7 @@ public abstract class Player {
             }
         } while(!found);
         if(!common.isEmpty()) {
-            throw new TileNotEmptyException("the tile is not empty");
+            common = this.chooseEmptyTile(board);
         }
         return common;
         

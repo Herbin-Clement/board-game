@@ -78,43 +78,40 @@ public class WarPlayer extends Player{
      * deploy an army on a tile
      */
     public void deploy(Board b) {//decrementer nb de joueurs + faire 3 fonctions
-        Army army = null;
-        CommonTile t = null;
-        int number = 0;
-        boolean emptyTile = false;
-        while(!emptyTile) { // choix d'une CommonTile vide
-            try {
-                t = this.chooseEmptyTile(b);
-                emptyTile = true;
-            } catch(TileNotEmptyException e) {
-                System.out.println("la tuile n'est pas vide");
-            }
-        }
-
-        boolean setp = false;
-        List<CommonTile> liste = b.getAdjacentCommonTile(t);
-        while(!setp) { // choix de la taille de l'armée possible pour la tuile
-                 
-            try {
-                number = (int) (Math.random()*4 +1);
-
-                army = new Army(t, number, this);
+        if(this.getNbCharacter() > 0){
+            Army army = null;
+            CommonTile tile = null;
+            tile = this.chooseEmptyTile(b);
+            army = putGoodArmy(tile);
+            List<CommonTile> liste = b.getAdjacentCommonTile(tile);
             
-                army.setPosition(t);
-                t.setCharacter(army);
-                setp = true;
-                this.nbCharacter -= number;
-            } catch(TileCapacityException e) {
-                System.out.println("La tuile ne supporte pas l'armée");
-            } catch (CapacityArmyException e) {
-                System.out.println("L'armée n'a pas la bonne taille");
+            ((List<Character>)this.theCharacters).add( army); //ajout de l'armée dans la liste theCharatcter
+            for(CommonTile c : liste){
+                army.meet(c);
             }
-            this.nbCharacter -= number;  
         }
-        ((List<Character>)this.theCharacters).add( army); //ajout de l'armée dans la liste theCharatcter
-        for(CommonTile c : liste){
-            army.meet(c);
-        }
+        else System.out.println("You deployed all your soldiers.");
+    }
+
+    public Army putGoodArmy(CommonTile tile) {
+        Army army;  
+        int number;               
+        try {
+            number = (int) (Math.random()*4 +1);
+            System.out.println("army of size " + number + " is created.");
+            army = new Army(tile, number, this);
+            
+            army.setPosition(tile);
+            tile.setCharacter(army);
+            this.nbCharacter -= number;
+        } catch(TileCapacityException e) {
+            System.out.println("La tuile ne supporte pas l'armée");
+            army = putGoodArmy(tile);
+        } catch (CapacityArmyException e) {
+            System.out.println("L'armée n'a pas la bonne taille");
+            army = putGoodArmy(tile);
+        } 
+        return army;
     }
 
     /**
