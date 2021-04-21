@@ -52,10 +52,8 @@ public abstract class Board {
      * @return true if all common tile are occupated and false if not
      */
     public boolean allIsOccupated() {
-        if (this.capacity == this.currentTilesUse) {
-            return true;
-        }
-        return false;
+        return (this.capacity == this.currentTilesUse);
+        
     }
 
     public void addOrRemoveCurrentTilesUse(int i) {
@@ -71,14 +69,21 @@ public abstract class Board {
             for (int x = 0; x < this.getWidth(); x++) {
                 if (this.board[x][y] instanceof OceanTile) {
                     line += Color.stringWithColor("  ", Color.bg_blue);
-                } else if (this.board[x][y] instanceof MountainTile) {
-                    line += Color.stringWithColor("  ", Color.bg_darkGray);
-                } else if (this.board[x][y] instanceof PlainTile) {
-                    line += Color.stringWithColor("  ", Color.bg_lightGreen);
-                } else if (this.board[x][y] instanceof DesertTile) {
-                    line += Color.stringWithColor("  ", Color.bg_yellow);
-                } else if (this.board[x][y] instanceof ForestTile) {
-                    line += Color.stringWithColor("  ", Color.bg_green);
+                }else{ 
+                    String name = "  ";
+                    CommonTile tile = (CommonTile) this.board[x][y];
+                    if (!tile.isEmpty()){
+                        name = tile.getCharacter().getOwner().getName().substring(0, 2);
+                    }
+                    if (this.board[x][y] instanceof MountainTile) {
+                        line += Color.stringWithColor(name, Color.bg_darkGray);
+                    } else if (this.board[x][y] instanceof PlainTile) {
+                        line += Color.stringWithColor(name, Color.bg_lightGreen);
+                    } else if (this.board[x][y] instanceof DesertTile) {
+                        line += Color.stringWithColor(name, Color.bg_yellow);
+                    } else if (this.board[x][y] instanceof ForestTile) {
+                        line += Color.stringWithColor(name, Color.bg_green);
+                    }
                 }
             }
             System.out.println(line);

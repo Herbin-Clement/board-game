@@ -67,6 +67,7 @@ public class Army extends Character{
      */
     public void earnGold(int n){
         this.gold += n;
+        System.out.println("the army: + " + n + " gold(s).");
     }
 
 
@@ -85,7 +86,6 @@ public class Army extends Character{
             else if(tile.considerAs() > this.position.considerAs() && this.getOwner().equals(other.getOwner())){ //alliées plus nombreux
                 System.out.println("It's an ally! They add 1 soldier.");
                 other.addWarrior(1);
-                System.out.println("We win 1 golds.");
                 this.earnGold(1);
             }
             else System.out.println("It's an ally!.");
@@ -105,7 +105,6 @@ public class Army extends Character{
             System.out.println("The ennemy army become our army.");
             ennemy.setOwner(this.getOwner());
         }
-        System.out.println("We win 2 golds.");
         this.earnGold(2);
     }
 

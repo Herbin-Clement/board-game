@@ -61,7 +61,9 @@ public class WarPlayer extends Player{
             if (this.getFood() < ((Army) a).getFoodRequire()){
                 System.out.println(String.format("army %s was not feed. army died.", i));
                 this.removeCharacter((Army) a);
+                a.getPosition().setCharacter(null);
                 this.gold +=1;
+                System.out.println(this.name + "+1 gold");
                 i++;
             }
             else{
@@ -82,10 +84,10 @@ public class WarPlayer extends Player{
             Army army = null;
             CommonTile tile = null;
             tile = this.chooseEmptyTile(b);
-            army = putGoodArmy(tile);
+            army = putGoodArmy(tile);// choix d'une armée adaptée
             List<CommonTile> liste = b.getAdjacentCommonTile(tile);
             
-            ((List<Character>)this.theCharacters).add( army); //ajout de l'armée dans la liste theCharatcter
+            ((List<Character>)this.theCharacters).add(army); //ajout de l'armée dans la liste theCharatcter
             for(CommonTile c : liste){
                 army.meet(c);
             }
