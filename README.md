@@ -79,6 +79,7 @@ Nous avons la  commencé compilation des différents package ce qui nous as perm
 Création des tests Army, Worker, WarPlayer, Tile et Board. Nous avons aussi reussi a compiler toutes nos classes.
 
 ## Semaine 9
+Nous avons continué BoardTest et corrigé les erreurs pour tester le bon fonctionnement du jeu dans Game.
 
 ## Semaine 10
 

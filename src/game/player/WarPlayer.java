@@ -58,13 +58,13 @@ public class WarPlayer extends Player{
         System.out.println("taille copy: " + copie.size());
         for(Character a : copie){
             if (this.getFood() < ((Army) a).getFoodRequire()){
-                System.out.println("Remove");
+                System.out.println("army " + i + " was not feed. The army died.");
                 this.removeCharacter((Army) a);
                 this.gold +=1;
                 i ++;
             }
             else{
-                System.out.println("army " + i + " was not feed. The army died.");
+                System.out.println("army " + i + "was feed.");
                 this.food -=  ((Army) a).getFoodRequire();
                 i ++;
             }
