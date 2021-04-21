@@ -37,11 +37,13 @@ public class WarPlayer extends Player{
      */
     public void recolt(){
         int food;
+        int i = 0;
         System.out.println("--------------------------------");
         for(Character a : this.theCharacters){
             food = a.getPosition().getRessourceValue();
-            System.out.println("recolt " + food + " of " + a.getPosition().toString());
+            System.out.println(String.format("army %s recolt %s of %s", i, food, a.getPosition().toString()));
             this.food += food;
+            i++;
         }
         System.out.println("--------------------------------\n");
     }
@@ -58,17 +60,19 @@ public class WarPlayer extends Player{
         System.out.println("taille copy: " + copie.size());
         for(Character a : copie){
             if (this.getFood() < ((Army) a).getFoodRequire()){
-                System.out.println("army " + i + " was feed.");
+                System.out.println(String.format("army %s was not feed. army died.", i));
                 this.removeCharacter((Army) a);
                 this.gold +=1;
-                i ++;
+                i++;
             }
             else{
-                System.out.println("army " + i + " was not feed. The army died.");
                 this.food -=  ((Army) a).getFoodRequire();
-                i ++;
+                System.out.println(String.format("army %s was feed. (%s food)", i, ((Army) a).getFoodRequire()));
+                i++;
             }
         }
+        System.out.println(String.format("gold : %s", this.gold));
+        System.out.println(String.format("food : %s", this.food));
         System.out.println("--------------------------------\n");
     }
 

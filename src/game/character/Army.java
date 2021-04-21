@@ -76,14 +76,19 @@ public class Army extends Character{
      */
     public void meet(CommonTile tile){//creer equals
         if(!tile.isEmpty()){
+            System.out.println("We meet somebody.");
             Army other = (Army) tile.getCharacter(); 
             if(tile.considerAs() < this.position.considerAs() && !this.getOwner().equals(other.getOwner())){ //armée ennemie inférieure
+                System.out.println("It's an ennemy!");
                 this.fight(other);
             }
             else if(tile.considerAs() > this.position.considerAs() && this.getOwner().equals(other.getOwner())){ //alliées plus nombreux
+                System.out.println("It's an ally! They add 1 soldier.");
                 other.addWarrior(1);
+                System.out.println("We win 1 golds.");
                 this.earnGold(1);
             }
+            else System.out.println("It's an ally!.");
         }
     }
 
@@ -93,11 +98,14 @@ public class Army extends Character{
      */
     public void fight(Army ennemy){
         if(ennemy.number>1){
+            System.out.println("The size of ennemy army is divised by 2.");
             ennemy.removeWarrior();
         }
         else{
+            System.out.println("The ennemy army become our army.");
             ennemy.setOwner(this.getOwner());
         }
+        System.out.println("We win 2 golds.");
         this.earnGold(2);
     }
 

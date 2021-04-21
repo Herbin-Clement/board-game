@@ -7,30 +7,6 @@ public class WarBoard extends Board{
     public WarBoard(int w, int h) {
         super(w,h);
     }
-
-    /**
-     * Initialise the board with the five differents tiles
-     */
-    public void initBoard() {
-        int width = this.getWidth();
-        int height = this.getHeight();
-        int h = this.getWidthDiamondSquare(width, height);
-        System.out.println(String.format("diamond square (%s, %s) : %s", width, height, this.getWidthDiamondSquare(width, height)));
-
-        int nbValues = width * height;
-        int tempTab[][] = this.getArrayWithDiamondSquare(h);
-
-        int tab[][] = this.cutArray(width, height, tempTab);
-
-        int[] values = this.getValues(width, height, tab, nbValues);
-        
-        Tile[][] board = this.getTileBoard(tab, values, nbValues, width, height);
-        if (board == null) {
-            this.initBoard();
-        } else {
-            this.board = board;
-        }
-    }
  
     /**
      * 
@@ -41,7 +17,7 @@ public class WarBoard extends Board{
      * @param h the height of the board
      * @return
      */
-    private Tile[][] getTileBoard(int[][] tab, int[] values, int nbValues, int w, int h) {
+    protected Tile[][] getTileBoard(int[][] tab, int[] values, int nbValues, int w, int h) {
         Tile[][] board = new Tile[w][h];
         int ocean = 0;
         int other = 0;
@@ -83,9 +59,6 @@ public class WarBoard extends Board{
             }
         }
         int total = other + ocean;
-        // System.out.println(String.format("total : %s", total));
-        // System.out.println(String.format("ocean : %s = %s for 100", ocean, ocean * 100 / total));
-        // System.out.println(String.format("other : %s = %s for 100", other, other * 100 / total));
         // if the % of OceanTile is greater than 75%, return null and call initBoard()
         if (ocean * 100 / total > 75) {
             return null;
