@@ -6,8 +6,8 @@ import game.player.*;
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon
  */
 public class Worker extends Character {
-    private boolean haveHarvest;
-    private int goldRequire;
+    //private boolean haveHarvest;
+    //private int goldRequire; 
     /**
      * Create a Worker
      * @param tile
@@ -16,7 +16,7 @@ public class Worker extends Character {
     public Worker(CommonTile tile, Player o) {
         super(tile, o);
         //this.haveHarvest = false; 
-        this.goldRequire = this.position.getFoodRequire();
+        //this.goldRequire = this.position.getFoodRequire();
     }
     /*
     public boolean haveHarvest() {
@@ -32,20 +32,13 @@ public class Worker extends Character {
      * @return quantity of gold necessary 
      */
     public int getGoldRequire() {
-        return this.goldRequire;
+        return this.position.getFoodRequire();
     }
 
     /**
      * pay of the worker
      */
     public void earnGold(int n) {
-        this.gold += this.goldRequire;
-    }
-
-    public static void main(String[] args) {
-        Worker w = new Worker(null, null);
-        if (w instanceof Character) {
-            System.out.println("oui");
-        }
+        this.gold += this.getGoldRequire();
     }
 }

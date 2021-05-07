@@ -1,7 +1,7 @@
 REP =-d ../classes
 FILE =*.java
  
-all: game board character exception player tile utils
+all: board character exception game player tile utils
 
 # Génération de la documentation
 
@@ -18,6 +18,9 @@ character:
 exception:
 	javac game/exception/$(FILE) $(REP)
 
+game:
+	javac game/$(FILE) $(REP)
+
 player:
 	javac game/player/$(FILE) $(REP)
 
@@ -27,10 +30,8 @@ tile:
 utils:
 	javac game/utils/$(FILE) $(REP)
 
-game:
-	javac game/Game.java $(REP)
-	javac game/AgricolGame.java $(REP)
-	javac game/WarGame.java $(REP)
-	
+
+
+
 
 .PHONY: doc all

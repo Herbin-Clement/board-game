@@ -63,7 +63,7 @@ public class WarPlayer extends Player{
                 this.removeCharacter((Army) a);
                 a.getPosition().setCharacter(null);
                 this.gold +=1;
-                System.out.println(this.name + "+1 gold");
+                System.out.println(this.name + " +1 gold");
                 i++;
             }
             else{

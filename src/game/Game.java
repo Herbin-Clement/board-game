@@ -29,15 +29,17 @@ public class Game {
         Player maxPlayer = this.players.get(0);
         while(i<this.round && ! stop){
             System.out.println("it's round " + i + "!\n");
-            this.board.displayBoard();
+            
             for(Player player : this.players){
                 System.out.println("\nIt's " + player.getName() + "'s turn");
+                this.board.displayBoard();
                 player.action(this.board);
                 player.recolt();
                 player.feed();
             }
-            if (this.board.allIsOccupated()){
+            if (this.board.allIsOccupated()){ //allIsOccupated ne fonctionne pas
                 stop=true;
+                System.out.println("hop la " + stop);
             }
             maxPlayer = this.computeScore(maxPlayer);
             i++;

@@ -6,12 +6,22 @@ all: boardTest characterTest playerTest tileTest gameTest
 #Compilation des packages
 
 cls:
-	make -C  src
+	make -C src
 
 doc:
 	make -C src doc
 
+guerre.jar: cls
+	make -C classes war
 
+agricole.jar: cls
+	make -C classes agricol
+
+war: guerre.jar
+	java -jar guerre.jar
+
+agricol: agricole.jar
+	java -jar agricole.jar
 
 #Compilation des tests
 boardTest:
@@ -32,6 +42,6 @@ gameTest:
 
 # Utile
 clean :
-	rm -f -r classes docs
+	rm -f -r .class docs
 
 .PHONY: clean doc cls
