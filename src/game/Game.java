@@ -1,25 +1,31 @@
 package game;
 
-import game.utils.*;
 import java.util.List;
 import game.player.*;
 import game.board.*;
 
-public class Game {
+public abstract class Game {
     protected List<? extends Player> players;
     protected Board board;
     protected int round;
 
 
+    /**
+     * create a game of round round
+     * @param round
+     */
     public Game(int round){
         this.round = round;
     }
 
+    /**
+     * get the number of the current round
+     * @return the round
+     */
     public int getRound(){
         return this.round;
     }
 
-//savoir ou mettre n
     /**
      * Play a game 
      */
@@ -37,7 +43,7 @@ public class Game {
                 player.recolt();
                 player.feed();
             }
-            if (this.board.allIsOccupated()){ //allIsOccupated ne fonctionne pas
+            if (this.board.allIsOccupated()){
                 stop=true;
                 System.out.println("hop la " + stop);
             }
@@ -47,6 +53,11 @@ public class Game {
         System.out.println("\nThe winner is " + maxPlayer.getName());
     }
 
+    /**
+     * display the players score and return the player with the more scode
+     * @param maxPlayer player
+     * @return player
+     */
     public Player computeScore(Player maxPlayer) {
         System.out.println("\n--------------------------------");
         for(Player player : this.players){
@@ -57,4 +68,6 @@ public class Game {
         System.out.println("-------------------------------- \n");
         return maxPlayer;
     }
+
+    abstract public void setupPlayer();
 }

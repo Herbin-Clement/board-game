@@ -69,6 +69,9 @@ public abstract class CommonTile extends Tile {
      */
     public abstract int getFoodRequire();
 
+    /**
+     * return the string representation of the tile
+     */
     public abstract String toString();
     
     /**

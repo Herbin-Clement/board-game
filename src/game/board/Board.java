@@ -76,13 +76,13 @@ public abstract class Board {
                         name = tile.getCharacter().getOwner().getName().substring(0, 2);
                     }
                     if (this.board[x][y] instanceof MountainTile) {
-                        line += Color.stringWithColor(name, Color.bg_darkGray);
+                        line += Color.stringWithColor(name, Color.bg_darkGray, Color.t_black);
                     } else if (this.board[x][y] instanceof PlainTile) {
-                        line += Color.stringWithColor(name, Color.bg_lightGreen);
+                        line += Color.stringWithColor(name, Color.bg_lightGreen, Color.t_black);
                     } else if (this.board[x][y] instanceof DesertTile) {
-                        line += Color.stringWithColor(name, Color.bg_yellow);
+                        line += Color.stringWithColor(name, Color.bg_yellow, Color.t_black);
                     } else if (this.board[x][y] instanceof ForestTile) {
-                        line += Color.stringWithColor(name, Color.bg_green);
+                        line += Color.stringWithColor(name, Color.bg_green, Color.t_black);
                     }
                 }
             }
@@ -102,7 +102,7 @@ public abstract class Board {
     }
 
     /**
-     * 
+     * get board width
      * @return the width of the board
      */
     public int getWidth(){
@@ -110,7 +110,7 @@ public abstract class Board {
     }
 
     /**
-     * 
+     * get board height
      * @return the height of the board
      */
     public int getHeight(){
@@ -265,6 +265,11 @@ public abstract class Board {
         return false;
     }
 
+    /**
+     * get the adjacent tile of cTile
+     * @param cTile a tile
+     * @return an array of tile
+     */
     public List<CommonTile> getAdjacentCommonTile(CommonTile cTile) {
         int x = cTile.getXCoordinate();
         int y = cTile.getYCoordinate();

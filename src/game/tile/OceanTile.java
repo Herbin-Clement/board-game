@@ -9,4 +9,11 @@ public class OceanTile extends Tile{
     public OceanTile(int x, int y){
         super(x,y);
     }
+
+    /**
+     * return the string representation of the tile
+     */
+    public String toString(){
+        return "ocean";
+    }
 }

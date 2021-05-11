@@ -10,12 +10,13 @@ public class WarMain{
 
     public static void main(String[] args) {
         WarBoard warboard = new WarBoard(10, 10);
-        List<WarPlayer> wp = new ArrayList<WarPlayer>();
-        for(String name : args){
-            if(name.length() < 2) name += "_";
-            wp.add(new WarPlayer(name));
-        }
-        Game game = new WarGame(wp, warboard);
+        // List<WarPlayer> wp = new ArrayList<WarPlayer>();
+        // for(String name : args){
+        //     if(name.length() < 2) name += "_";
+        //     wp.add(new WarPlayer(name));
+        // }
+        Game game = new WarGame(warboard);
+        game.setupPlayer();
         game.play();
     }
 
