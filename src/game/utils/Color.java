@@ -36,6 +36,12 @@ public class Color {
     public static String t_lightCyan = "\u001B[96m";
     public static String t_white = "\u001B[97m";
 
+    /**
+     * get a string with color for the terminal
+     * @param s the string
+     * @param color the color to display
+     * @return a string with the color
+     */
     public static String stringWithColor(String s, String color) {
         if (color.startsWith("\u001B[4") || color.startsWith("\u001B[10")) {
             return String.format("%s%s%s", color, s, Color.bg_default);
@@ -44,6 +50,13 @@ public class Color {
         }
     }
 
+        /**
+     * get a string with color for the terminal
+     * @param s the string
+     * @param bg_color the background color to display
+     * @param t_color the text color to display
+     * @return a string with the color
+     */
     public static String stringWithColor(String s, String bg_color, String t_color) {
         return String.format("%s%s%s%s%s", bg_color, t_color, s, Color.bg_default, Color.t_default);
     }

@@ -1,7 +1,7 @@
 REP =-d ../classes
 FILE =*.java
  
-all: board character exception game player tile utils
+all: board character exception jeu player tile utils
 
 # Génération de la documentation
 
