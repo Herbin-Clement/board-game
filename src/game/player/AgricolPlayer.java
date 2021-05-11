@@ -78,13 +78,20 @@ public class AgricolPlayer extends Player{
      * @param b board of this game
      */
     public void action(Board b){
-        int number = (int) (Math.random()*2);
+        int number = (int) (Math.random()*3);
         System.out.println(this.name + " choose " + number);
-        if(number == 1) this.deploy(b); //deploit un ouvrier
+        if(number == 1) {
+            this.deploy(b); //deploit un ouvrier
+            System.out.println("a worker was engaged.");
+        }
 
-        else if(number == 0) this.change(); // echange des ressources contre de l'or.
+        else if(number == 0) {
+            this.change(); // echange des ressources contre de l'or.
+            System.out.println(this.name + " sell some ressources to the supermarket");
+        }
 
         else{ // ne rien faire
+            System.out.println("It's the break!");
         	for(Character w : theCharacters){
                 if(((Worker) w).getPosition() instanceof ForestTile || ((Worker) w).getPosition() instanceof PlainTile){
                     this.gold += 1;

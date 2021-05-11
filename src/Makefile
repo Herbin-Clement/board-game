@@ -18,7 +18,7 @@ character:
 exception:
 	javac game/exception/$(FILE) $(REP)
 
-game:
+jeu:
 	javac game/$(FILE) $(REP)
 
 player:
