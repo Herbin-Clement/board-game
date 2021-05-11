@@ -29,6 +29,21 @@ public class PlainTile extends CommonTile {
         }
     }
 
+    /**
+     * compare this and o
+     * @param o the other object to compare
+     * @return true if this and o attributes are equal and false if not
+     */
+    public boolean equals(Object o){
+        if (o instanceof PlainTile){
+            PlainTile that = (PlainTile) o;
+            return that.getXCoordinate() == this.getXCoordinate() && that.getYCoordinate() == this.getYCoordinate();
+        } else return false;
+    }
+
+    /**
+     * return the string representation of the tile
+     */
     public String toString(){
         return "corn";
     }
