@@ -42,6 +42,6 @@ gameTest:
 
 # Utile
 clean :
-	rm -f -r .class docs
+	rm -f -r classes/game  test/*.class classesdocs
 
 .PHONY: clean doc cls
