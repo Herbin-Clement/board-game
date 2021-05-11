@@ -14,8 +14,8 @@ public class AgricolGame extends Game{
     }
 
     public void setupPlayer() {
-        WarPlayer p;
-        List<WarPlayer> wp = new ArrayList<WarPlayer>();
+        AgricolPlayer p;
+        List<AgricolPlayer> wp = new ArrayList<AgricolPlayer>();
         int nbPlayer;
         String name;
         Scanner sc = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class AgricolGame extends Game{
         for (int i = 0; i < nbPlayer; i++) {
             System.out.println("Name of player " + i + " :");
             name = sc.nextLine();
-            p = new WarPlayer(name);
+            p = new AgricolPlayer(name);
             wp.add(p);
         }
         this.players = wp;
