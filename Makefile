@@ -1,7 +1,7 @@
-TEST = javac -classpath test4poo.jar
+TEST = javac -classpath jar/test4poo.jar
 FILE =*.java
 
-all: boardTest characterTest playerTest tileTest gameTest
+all: boardTest characterTest playerTest tileTest 
 
 #Compilation des packages
 
@@ -13,31 +13,30 @@ doc:
 
 guerre.jar: cls
 	make -C classes war
+	mv guerre.jar jar/
 
 agricole.jar: cls
 	make -C classes agricol
+	mv agricole.jar jar/
 
 war: guerre.jar
-	java -jar guerre.jar
+	java -jar jar/guerre.jar
 
 agricol: agricole.jar
-	java -jar agricole.jar
+	java -jar jar/agricole.jar
 
 #Compilation des tests
-boardTest:
+boardTest: 
 	$(TEST) test/game/board/$(FILE)
 
 characterTest: 
 	$(TEST) test/game/character/$(FILE)
 
-playerTest:
+playerTest: 
 	$(TEST) test/game/player/$(FILE)
 
 tileTest:
 	$(TEST) test/game/tile/$(FILE)
-
-gameTest:
-	$(TEST) test/game/game/$(FILE)
 
 
 # Utile
