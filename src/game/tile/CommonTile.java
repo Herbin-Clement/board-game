@@ -4,6 +4,11 @@ package game.tile;
 import game.character.*;
 import game.character.Character;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public abstract class CommonTile extends Tile {
     protected Character character;
     protected int capacity;

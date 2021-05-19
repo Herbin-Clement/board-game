@@ -6,13 +6,26 @@ import java.util.Scanner;
 
 import game.board.*;
 import game.player.*;
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class WarGame extends Game{
 
+    /**
+     * create a war game
+     * @param b the board of the game
+     */
     public WarGame(WarBoard b){
         super(10);
         this.board = b;
     }
-
+    
+    /**
+     * Setup the player, can choose the number of player and the name of each one
+     */
     public void setupPlayer() {
         WarPlayer p;
         List<WarPlayer> wp = new ArrayList<WarPlayer>();

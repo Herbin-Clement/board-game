@@ -17,6 +17,12 @@ import game.player.*;
 
 import org.junit.Before;
 
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class CommonTileTest {
     private Player p;
     private PlainTile plainTile;

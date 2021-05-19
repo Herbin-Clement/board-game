@@ -4,7 +4,7 @@ import game.tile.*;
 import game.player.*;
 import game.exception.*;
 /**
- * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
  */
 public abstract class Character {
     protected int gold;

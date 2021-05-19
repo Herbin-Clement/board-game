@@ -9,6 +9,11 @@ import game.character.Worker;
 import game.character.Character;
 import game.tile.*;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class AgricolPlayer extends Player{
     protected int ressource;
     /**
@@ -21,9 +26,14 @@ public class AgricolPlayer extends Player{
         this.theCharacters = new ArrayList<>(10);
     }
 
+    /**
+     * get the ressource of the tile
+     * @return the ressource of the tile
+     */
     public int getRessource(){
         return this.ressource;
     }
+
     /**
      * @param b board of this game
      */

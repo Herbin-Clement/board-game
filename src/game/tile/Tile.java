@@ -1,5 +1,10 @@
 package game.tile;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class Tile {
     private int xCoordinate;
     private int yCoordinate;

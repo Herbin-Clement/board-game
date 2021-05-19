@@ -1,5 +1,10 @@
 package game.utils;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class Color {
     public static String bg_black = "\u001B[40m";
     public static String bg_red = "\u001B[41m";

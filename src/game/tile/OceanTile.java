@@ -1,5 +1,10 @@
 package game.tile;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class OceanTile extends Tile{
     /**
      * create ocean tile

@@ -2,6 +2,11 @@ package game.tile;
 
 import game.character.*;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class PlainTile extends CommonTile {
 
     /**

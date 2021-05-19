@@ -2,6 +2,11 @@ package game.board;
 
 import game.tile.*;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class WarBoard extends Board{
 
     public WarBoard(int w, int h) {

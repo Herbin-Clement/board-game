@@ -6,13 +6,26 @@ import java.util.Scanner;
 
 import game.player.*;
 import game.board.*;
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class AgricolGame extends Game{
 
+    /**
+     * create a game
+     * @param b board of the game
+     */
     public AgricolGame(AgricolBoard b ){
         super(10);
         this.board = b;
     }
 
+    /**
+     * Setup the player, can choose the number of player and the name of each one
+     */
     public void setupPlayer() {
         AgricolPlayer p;
         List<AgricolPlayer> wp = new ArrayList<AgricolPlayer>();

@@ -2,7 +2,6 @@ package game.player;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import game.exception.*;
 import game.board.Board;
@@ -95,6 +94,11 @@ public class WarPlayer extends Player{
         else System.out.println("You deployed all your soldiers.");
     }
 
+    /**
+     * put an army on the tile t
+     * @param tile the tile where we put an army
+     * @return
+     */
     public Army putGoodArmy(CommonTile tile) {
         Army army;  
         int number;               

@@ -10,6 +10,11 @@ import game.character.*;
 import game.player.AgricolPlayer;
 
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class AgricolPlayerTest{
 
     private AgricolPlayer playerG;

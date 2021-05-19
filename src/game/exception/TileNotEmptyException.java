@@ -1,5 +1,10 @@
 package game.exception;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class TileNotEmptyException extends Exception{
 
     /**

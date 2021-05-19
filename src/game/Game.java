@@ -4,6 +4,11 @@ import java.util.List;
 import game.player.*;
 import game.board.*;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public abstract class Game {
     protected List<? extends Player> players;
     protected Board board;
@@ -69,5 +74,8 @@ public abstract class Game {
         return maxPlayer;
     }
 
+    /**
+     * setup the player number and name
+     */
     abstract public void setupPlayer();
 }

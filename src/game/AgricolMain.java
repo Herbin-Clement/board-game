@@ -2,6 +2,11 @@ package game;
 
 import game.board.AgricolBoard;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class AgricolMain {
 
     public static void main(String[] args) {

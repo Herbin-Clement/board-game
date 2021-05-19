@@ -11,6 +11,12 @@ import game.tile.*;
 
 import org.junit.Before;
 
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class ArmyTest {
     private ForestTile forest;
     private MountainTile mountain;

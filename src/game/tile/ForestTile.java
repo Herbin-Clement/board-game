@@ -2,6 +2,11 @@ package game.tile;
 
 import game.character.Army;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class ForestTile extends CommonTile {
 
 

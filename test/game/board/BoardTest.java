@@ -14,6 +14,12 @@ import game.tile.*;
 
 import org.junit.Before;
 
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class BoardTest {
     private int w;
     private int h;

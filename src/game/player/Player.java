@@ -6,11 +6,11 @@ import game.tile.*;
 import game.board.Board;
 import game.character.Character;
 
-import game.exception.*;
 /**
  * @author Grassien Léa, Herbin Clément, Codevelle Alexis
  * 
  */
+
 public abstract class Player {
 
     protected String name;
@@ -87,11 +87,26 @@ public abstract class Player {
         
     }
     
+    /**
+     * feed the player
+     */
     public abstract void feed();
 
+
+    /**
+     * recolt the ressource
+     */
     public abstract void recolt();
 
+    /**
+     * do an action 
+     * @param b the board of the game
+     */
     public abstract void action(Board b);
 
+    /**
+     * update the score
+     * @return
+     */
     public abstract int score();
 }

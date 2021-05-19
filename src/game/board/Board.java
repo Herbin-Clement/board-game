@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.ArrayList;
 import game.utils.*;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public abstract class Board {
     protected int width;
     protected int height;
@@ -13,6 +18,11 @@ public abstract class Board {
     protected int currentTilesUse;
     protected Tile[][] board;
 
+    /**
+     * create a board
+     * @param w width of the board
+     * @param h height of the board
+    */
     public Board(int w, int h) {
         this.width = w;
         this.height = h;
@@ -288,12 +298,5 @@ public abstract class Board {
                 tiles.add((CommonTile) this.board[x][y + 1]);
         }
         return tiles;
-    }
-
-    public static void main(String[] args) {
-        int w = 30;
-        int h = 30;
-        AgricolBoard board = new AgricolBoard(w, h);
-        board.displayBoard();
     }
 } 

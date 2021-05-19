@@ -1,6 +1,11 @@
 package game.tile;
 import game.character.*;
 
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class DesertTile extends CommonTile {
     /**
      * Create a Desert Tile

@@ -10,6 +10,12 @@ import game.tile.*;
 
 import org.junit.Before;
 
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class WarPlayerTest{
     private WarPlayer playerG;
     private WarPlayer playerB;

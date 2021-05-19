@@ -3,7 +3,7 @@ package game.character;
 import game.tile.*;
 import game.player.*;
 /**
- * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
  */
 public class Worker extends Character {
     //private boolean haveHarvest;

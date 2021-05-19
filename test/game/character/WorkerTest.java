@@ -8,6 +8,12 @@ import org.junit.Before;
 import game.player.AgricolPlayer;
 import game.tile.*;
 
+
+/**
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
+ * 
+ */
+
 public class WorkerTest {
 
     private ForestTile forest;

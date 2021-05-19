@@ -6,7 +6,7 @@ import game.player.*;
 import game.exception.*;
 import game.exception.TileCapacityException;
 /**
- * @author Grassien Léa, Herbin Clément, Codevelle Alexis, Longatte Simon 
+ * @author Grassien Léa, Herbin Clément, Codevelle Alexis
  * 
  */
 public class Army extends Character{
