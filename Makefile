@@ -1,4 +1,4 @@
-TEST = javac -classpath test4poo.jar
+TEST = javac -classpath jar/test4poo.jar
 FILE =*.java
 
 all: boardTest characterTest playerTest tileTest gameTest
