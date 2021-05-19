@@ -26,6 +26,7 @@ public class AgricolGame extends Game{
         for (int i = 0; i < nbPlayer; i++) {
             System.out.println("Name of player " + i + " :");
             name = sc.nextLine();
+            if(name.length() < 2) name += " ";
             p = new AgricolPlayer(name);
             wp.add(p);
         }
