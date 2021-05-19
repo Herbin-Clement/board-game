@@ -27,10 +27,9 @@ public class PlainTile extends CommonTile {
         if(this.getCharacter() instanceof Army){
             Army army = (Army) this.getCharacter();
             return army.getNumber();
-        } else if (this.getCharacter() instanceof Worker){
+        }
+        else {
             return 1;
-        } else {
-            return 0;
         }
     }
 
