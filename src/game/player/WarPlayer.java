@@ -121,12 +121,12 @@ public class WarPlayer extends Player{
      * @param b board of this game
      */
     public void action(Board b) {
-        int number;
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.print("0 for doing nothing, 1 for deploy an army. Your choice : ");
-            number = sc.nextInt();
-        } while (!(number <= 1 && number >= 0));
+        int number = (int) (Math.random() * 2);
+        // Scanner sc = new Scanner(System.in);
+        // do {
+        //     System.out.print("0 for doing nothing, 1 for deploy an army. Your choice : ");
+        //     number = sc.nextInt();
+        // } while (!(number <= 1 && number >= 0));
         if(number == 1) {
             System.out.println(this.getName() + " deploy an army !");
             this.deploy(b);

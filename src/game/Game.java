@@ -1,11 +1,10 @@
 package game;
 
-import game.utils.*;
 import java.util.List;
 import game.player.*;
 import game.board.*;
 
-public class Game {
+public abstract class Game {
     protected List<? extends Player> players;
     protected Board board;
     protected int round;
@@ -69,4 +68,6 @@ public class Game {
         System.out.println("-------------------------------- \n");
         return maxPlayer;
     }
+
+    abstract public void setupPlayer();
 }

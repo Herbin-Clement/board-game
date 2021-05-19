@@ -85,5 +85,8 @@ Nous avons continué BoardTest et corrigé les erreurs pour tester le bon foncti
 Nous avons continué l'affichage des messages lors du jeu et la coloration du plateau.
 
 ## Semaine 11
+Nous avons terminé de corrigé les Makefiles, et quelques corrections divers comme le choix des joueurs, les documentations.
+Début du diaporama.
+Le fichier test4poo.jar est à la racine du projet.
 
 ## Semaine 12
