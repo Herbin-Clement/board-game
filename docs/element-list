@@ -1,7 +1,0 @@
-game
-game.board
-game.character
-game.exception
-game.player
-game.tile
-game.utils
