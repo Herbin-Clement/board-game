@@ -7,7 +7,7 @@ import java.util.*;
 
 import org.junit.Test;
 
-import src.game.board.AgricolBoard;
+import game.board.AgricolBoard;
 import game.tile.*;
 
 
