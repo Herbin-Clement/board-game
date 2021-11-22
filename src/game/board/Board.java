@@ -79,11 +79,12 @@ public abstract class Board {
             for (int x = 0; x < this.getWidth(); x++) {
                 if (this.board[x][y] instanceof OceanTile) {
                     line += Color.stringWithColor("  ", Color.bg_blue);
-                }else{ 
+                } else { 
                     String name = "  ";
                     CommonTile tile = (CommonTile) this.board[x][y];
                     if (!tile.isEmpty()){
-                        name = tile.getCharacter().getOwner().getName().substring(0, 2);
+                        name = Color.stringWithColor(tile.getCharacter().getOwner().getName().substring(0, 2), Color.t_white);
+                        // name = tile.getCharacter().getOwner().getName().substring(0, 2);
                     }
                     if (this.board[x][y] instanceof MountainTile) {
                         line += Color.stringWithColor(name, Color.bg_darkGray, Color.t_black);

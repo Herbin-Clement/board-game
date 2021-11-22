@@ -26,9 +26,11 @@ public class WarBoard extends Board{
         Tile[][] board = new Tile[w][h];
         int ocean = 0;
         int other = 0;
+        String line = "";
         // Change the int of the tab for Tile
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
+                line += " " + String.valueOf(tab[x][y]);
                  // if the value of the tab[x][y] is lower than the values[(int) nbValues * 67 / 100] + 1, set the tab[x][y] to a OceanTile
                 // values[(int) nbValues * 67 / 100] is the value that 67% or more of the tile will be Ocean Tile
                 if (tab[x][y] < values[(int) nbValues * 67 / 100] + 1) {
@@ -48,6 +50,9 @@ public class WarBoard extends Board{
                     other++;
                 }
             }
+            System.out.print(line);
+            System.out.print("\n");
+            line = "";
         }
         this.board = board;
         // this.displayBoard();

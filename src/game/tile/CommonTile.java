@@ -89,7 +89,6 @@ public abstract class CommonTile extends Tile {
             return army.getNumber();
         }
         return 0;
-        
     }
 
 }
